@@ -134,5 +134,11 @@ window.addEventListener('resize', function(event){
     run_mandelbrot.initialize()
 });
 
+window.addEventListener('orientationchange', function(event){
+    document.querySelector('#center-card').className = ''
+    document.querySelector('#center-card').innerHTML = ''
+    run_mandelbrot.initialize()
+});
+
 const run_mandelbrot = new Mandelbrot();
 
