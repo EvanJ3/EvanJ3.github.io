@@ -26,10 +26,10 @@ class Mandelbrot {
         //this.y_start = 1.0;
         //this.y_stop = 0.0;
 
-        if (this.canvas_width/2 !== 0){
+        if (this.canvas_width%2 !== 0){
             this.canvas_width = this.canvas_width-1
         }
-        if (this.canvas_height/2 !==0){
+        if (this.canvas_height%2 !==0){
             this.canvas_height = this.canvas_height-1
         }
 
