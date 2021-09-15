@@ -1,0 +1,66 @@
+@import "_variables";
+@import "_globals";
+@import "_header";
+@import "_footer";
+@import "_mixins";
+@import "_animations";
+
+.table-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    overflow: auto;
+}
+
+
+.lead-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.course-description{
+  color: black;
+  
+}
+
+.course-lead{
+  color: black;
+  text-decoration: underline;
+}
+
+.student-count-bar{
+  background-color: #363636;
+  border-radius: 10px;
+  height: 10px;
+}
+
+#teaching {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    border-collapse: collapse;
+    width: 70%;
+  }
+  
+  #teaching td, #teaching th {
+    border: 0px solid rgba(48, 47, 47, 0.1);
+    padding: 8px;
+  }
+  
+
+  
+  #teaching tr:hover {background-color: rgba(51, 50, 50, 0.1);}
+  
+  #teaching th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    
+    background-color: #363636;
+    color: white;
+  }
