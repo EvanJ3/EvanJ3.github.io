@@ -29,9 +29,9 @@ class Mandelbrot {
         if (this.canvas_height%2 !==0){
             this.canvas_height = this.canvas_height-1
         }
-
+        this.canvas_width = this.canvas_width +3
         this.canvas_container = document.querySelector('.canvas-container')
-        this.canvas_container.style.width = this.canvas_width
+        this.canvas_container.style.width = this.canvas_width 
         this.canvas_container.style.height = this.canvas_height
 
         
