@@ -89,3 +89,22 @@
         }
 }
 
+@media screen and (min-width: 400px) // Landscape Mode for ios devices
+{
+    footer{
+        font-size: 12px;
+    }
+    .title-card{
+        top: 25%;
+        width: 50%;
+        
+    }
+
+    .name-title{
+        font-size: 24px;
+    }
+
+    .description-content{
+        font-size: 20px;
+    }
+}
