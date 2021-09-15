@@ -1,4 +1,6 @@
+var lockOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
 
+lockOrientation("landscape-primary");
 
 class Mandelbrot {
 
