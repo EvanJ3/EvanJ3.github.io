@@ -66,8 +66,8 @@ class Mandelbrot {
         this.full_height_less_one = this.canvas_height-1
         this.canvas_height = this.canvas_height/2
 
-        this.x_step = (this.x_stop - this.x_start) / (this.canvas_width-1);
-        this.y_step = (this.y_stop - this.y_start) / (this.canvas_height-1);
+        this.x_step = (this.x_stop - this.x_start) / (this.canvas_width);
+        this.y_step = (this.y_stop - this.y_start) / (this.canvas_height);
 
         this.max_iteration = 20;
         this.min_iteration = 0;
