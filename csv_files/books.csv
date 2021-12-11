@@ -1,0 +1,44 @@
+Book_ID,Title,Author_First,Author_Last,Fiction,Genre,Topic,Region,Pages,Read,Description,Score,Review,Tags,Image_Path
+1,A Brief History of Time,Stephen,Hawking,FALSE,Math & Science,Physics,Great Britan,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/A_Brief_History_of_Time.JPG
+2,A Primer for the Mathematics of Financial Engineering,Dan,Stefanica,FALSE,,,,100,TRUE,Pass for now,3,Pass for now,Pass for now,./bookshelf_images/A_Primer_for_the_Mathematics_of_Financial_Engineering.JPG
+3,Analysis of Numerical Methods,Eugene,Isaacson,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Analysis_of_Numerical_Methods.JPG
+4,Anna Karenina,Leo,Tolstoy,TRUE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/Anna_Karenina.JPG
+5,Applied Calculus & Regression Analysis,Tan,Dielman,FALSE,,,,100,TRUE,Pass for now,3,Pass for now,Pass for now,./bookshelf_images/Applied_Calculus_&_Regression_Analysis.JPG
+6,Arabian Nights,Various Authors,,TRUE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Arabian_Nights.JPG
+7,Atlas Shrugged,Ayn,Rand,TRUE,,,,100,TRUE,Pass for now,5,Pass for now,Pass for now,./bookshelf_images/Atlas_Shrugged.JPG
+8,Celtic Myths and Legends,T.W.,Rolleston,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Celtic_Myths_and_Legends.JPG
+9,Classical Dynamics of Particles and Systems,Stephen,Thornton,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Classical_Dynamics_of_Particles_and_Systems.JPG
+10,Crime and Punishment,Fyodor,Dostoevsky,TRUE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/Crime_and_Punishment.JPG
+11,Decline and Fall of the Roman Empire,Edward,Gibbon,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Decline_and_Fall_of_the_Roman_Empire.JPG
+12,Deep Learning with Python,Francois,Chollet,FALSE,,,,100,TRUE,Pass for now,5,Pass for now,Pass for now,./bookshelf_images/Deep_Learning_with_Python.JPG
+13,Don Quixote,Miguel,de Cervantes,TRUE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Don_Quixote.JPG
+14,Essentials of Investments,Zvi,Bodie,FALSE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/Essentials_of_Investments.JPG
+15,Fermats Enigma,Simon,Singh,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Fermats_Enigma.JPG
+16,Hedge Fund Secrects,Tucker,Balch,FALSE,,,,100,TRUE,Pass for now,1,Pass for now,Pass for now,./bookshelf_images/Hedge_Fund_Secrects.JPG
+17,Incerto,Nassim,Taleb,FALSE,,,,100,TRUE,Pass for now,5,Pass for now,Pass for now,./bookshelf_images/Incerto.JPG
+18,Introduction to Classical Mechanics,David,Morin,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Introduction_to_Classical_Mechanics.JPG
+19,Les Miserables,Victor,Hugo,TRUE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Les_Miserables.JPG
+20,Liars Poker,Michael,Lewis,FALSE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/Liars_Poker.JPG
+21,Mastering Machine Learning with R,Brett,Lantz,FALSE,,,,100,TRUE,Pass for now,3,Pass for now,Pass for now,./bookshelf_images/Mastering_Machine_Learning_with_R.JPG
+22,Mastering Machine Learning with Scikit learn,Gavin,Hackeling,FALSE,,,,100,TRUE,Pass for now,3,Pass for now,Pass for now,./bookshelf_images/Mastering_Machine_Learning_with_Scikit_learn.JPG
+23,Mastering Pandas for Finance,Michael,Heydt,FALSE,,,,100,TRUE,Pass for now,2,Pass for now,Pass for now,./bookshelf_images/Mastering_Pandas_for_Finance.JPG
+24,Myths and Legends of Ancient Egypt,Lewis,Spence,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Myths_and_Legends_of_Ancient_Egypt.JPG
+25,Myths and Legends of Babylonia and Assyria,Lewis,Spence,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Myths_and_Legends_of_Babylonia_and_Assyria.JPG
+26,Myths and Legends of China,E.T.C.,Werner,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Myths_and_Legends_of_China.JPG
+27,Myths and Legends of Japan,Frederick,Davis,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Myths_and_Legends_of_Japan.JPG
+28,Myths of the North American Indians,Lewis,Spence,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Myths_of_the North_American_Indians.JPG
+29,Myths of the Hindus and Buddhists,Sister,Nivedita,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Myths_of_the_Hindus_and_Buddhists.JPG
+30,Myths of the Norsemen,Helene,Guerber,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/Myths_of_the_Norsemen.JPG
+31,Sacred Texts,Various Authors,,FALSE,,,,100,TRUE,Pass for now,5,Pass for now,Pass for now,./bookshelf_images/Sacred_Texts.JPG
+32,Scikit Learn Cookbook,Julian,Avila,FALSE,,,,100,TRUE,Pass for now,2,Pass for now,Pass for now,./bookshelf_images/Scikit_Learn_Cookbook.JPG
+33,Shakespeare's Plays,William,shakespeare,TRUE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/Shakespeare_Plays.JPG
+34,Stochastic Calculus for Finance I,Steven,Shreve,FALSE,,,,100,TRUE,Pass for now,3,Pass for now,Pass for now,./bookshelf_images/Stochastic_Calculus_for_Finance_I.JPG
+35,Stochastic Calculus for Finance II,Steven,Shreve,FALSE,,,,100,TRUE,Pass for now,3,Pass for now,Pass for now,./bookshelf_images/Stochastic_Calculus_for_Finance_II.JPG
+36,Technical Analysis Explained,Martin,Pring,FALSE,,,,100,TRUE,Pass for now,2,Pass for now,Pass for now,./bookshelf_images/Technical_Analysis_Explained.JPG
+37,The Brothers Karamazov,Fyodor,Dostoevsky,TRUE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/The_Brothers_Karamazov.JPG
+38,The Count of Monte Cristo,Alexandre,Dumas,TRUE,,,,100,TRUE,Pass for now,5,Pass for now,Pass for now,./bookshelf_images/The_Count_of_Monte_Cristo.JPG
+39,The Greek Myths Volume 1,Robert,Graves,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/The_Greek_Myths_Volume_1.JPG
+40,The Greek Myths Volume 2,Robert,Graves,FALSE,,,,100,FALSE,Pass for now,0,Pass for now,Pass for now,./bookshelf_images/The_Greek_Myths_Volume_2.JPG
+41,The Python Bible,Maurice,Thompson,FALSE,,,,100,TRUE,Pass for now,2,Pass for now,Pass for now,./bookshelf_images/The_Python_Bible.JPG
+42,The Science of Secrecy,Simon,Singh,FALSE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/The_Science_of_Secrecy.JPG
+43,This Machine Kills Secrets,Andy,Greenberg,FALSE,,,,100,TRUE,Pass for now,4,Pass for now,Pass for now,./bookshelf_images/This_Machine_Kills_Secrets.JPG

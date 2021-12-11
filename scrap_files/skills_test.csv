@@ -1,0 +1,11 @@
+Skill_ID,Skill_Name,Skill_Group,Skill_Value
+1,Python,Machine Learning,100
+2,Javascript,Web Development,70
+3,PHP,Web Development,70
+4,R,Machine Learning,90
+5,MATLAB,Machine Learning,80
+6,Mathematica,Machine Learning,70
+7,C++,Computer Science,60
+8,SQL,Databases,90
+9,Mongo DB,Databases,90
+10,CLI,Computer Science,80

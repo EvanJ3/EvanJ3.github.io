@@ -1,0 +1,472 @@
+@import "_variables";
+@import "_globals";
+@import "_header";
+@import "_footer";
+@import "_mixins";
+@import "_animations";
+@import "bookshelf";
+
+section{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#timeline-container{
+    width: 80%; 
+    max-width:900px;
+}
+
+.timeline-entry{
+    display: flex;
+    padding-top: 1.5rem;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.certification-button-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+.certificate-button{
+    display: flex;
+    border-radius: 12px;
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: cornflowerblue;
+    
+    &:hover{
+        box-shadow:0 0 20px rgba(33,33,33,.2);
+    }
+}
+
+.course-work-button{
+    color: black;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+
+}
+
+.location-text{
+    font-style: italic; 
+    font-weight: 100;
+    font-size: 12pt;
+}
+
+.timeline-content{
+
+    width: 70%;
+    margin-left: 5%;
+    > ol{
+        list-style: none;
+        text-indent: -1em;
+    }
+    
+}
+
+.timeline-lead{
+
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 5%;
+    min-width: 200px;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.timeline-school-icon{
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.about-text{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-style: italic;
+    text-align: left;
+
+    &.light-text{
+        font-weight: 300;
+
+    }
+
+    &.bold-text{
+        font-weight: 600;
+    }
+
+}
+
+.skill-center-container{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+    max-width: 1300px;
+    flex-wrap: wrap;
+    
+
+}
+
+.skill-title{
+    text-decoration: underline;
+    text-align: center;
+}
+
+
+.skill-tag{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.skill-bar{
+    display: flex;
+    width: 75%;
+    max-width: 250px;
+    background-color: black;
+    height: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.skill-text-container{
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+}
+
+.skill-container{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 75%;
+    max-width: 250px;
+}
+
+.skill-col{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+}
+
+
+.skill-lead{
+    display: flex;
+    text-decoration: underline;
+    color: black;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 575.98px){
+
+    .content-center-container{
+        
+        width: 95%;
+
+        >h2 {
+            text-align: center;
+        }
+    }
+
+    .about-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        float: none; 
+        border-radius: 50%;
+        -webkit-shape-outside:none;
+        shape-outside:none;
+        max-width: 100%;
+        
+    
+    }
+    
+    .profile-image{
+        border-radius: 50%;
+        width: 250px;
+        float: none;
+        margin-right:none;
+        margin-top: none;
+        border-radius: 50%;
+        -webkit-shape-outside:none;
+        shape-outside:none;
+    
+    }
+
+    .about-text{
+        text-align: center;
+    }
+
+    .timeline-entry{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .timeline-lead{
+        text-align: center;
+        margin-right: 0%;
+    }
+
+    .timeline-content{
+        text-align: center;
+        margin-right: 0%;
+        margin-left: 0%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .timeline-school-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .skill-center-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .skill-col{
+        width: 100%;
+        align-self: none;
+    }
+
+}
+
+@media (min-width: 576px) and (max-width:991.98px){
+
+    .content-center-container{
+
+        width: 75%;
+
+        > h2 {
+            text-align: center;
+        }
+    }
+
+    .about-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        float: none; 
+        border-radius: 50%;
+        -webkit-shape-outside:none;
+        shape-outside:none;
+        max-width: 800px;
+    
+    }
+    
+    .profile-image{
+        border-radius: 50%;
+        width: 250px;
+        float: none;
+        margin-right:none;
+        margin-top: none;
+        border-radius: 50%;
+        -webkit-shape-outside:none;
+        shape-outside:none;
+    
+    }
+
+    .about-text{
+        text-align: center;
+    }
+
+    .timeline-entry{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .timeline-lead{
+        text-align: center;
+        margin-right: 0%;
+    }
+
+    .timeline-content{
+        text-align: center;
+        margin-right: 0%;
+        margin-left: 0%;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .timeline-school-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .skill-center-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .skill-col{
+        width: 100%;
+        align-self: flex-start;
+    }
+
+
+    
+}
+
+@media (min-width:992px) and (max-width:1199.98px){
+    .content-center-container{
+
+        width: 75%;
+    }
+
+    .about-content{
+        float: left; 
+        border-radius: 50%;
+        -webkit-shape-outside:circle();
+        shape-outside:circle();
+        max-width: 800px;
+    }
+    
+    .profile-image{
+        border-radius: 50%;
+        width: 250px;
+        float: left;
+        margin-right:2rem; 
+        margin-top: 2rem;
+        border-radius: 50%;
+        -webkit-shape-outside:circle();
+        shape-outside:circle()
+    
+    }
+
+    .about-text{
+        text-align: left;
+    }
+
+    .skill-col{
+        width: 50%;
+        align-self: flex-start;
+    }
+
+    
+}
+
+@media (min-width:1200px) and (max-width:1399.9px){
+    .content-center-container{
+
+        width: 75%;
+    }
+
+    .about-content{
+        float: left; 
+        border-radius: 50%;
+        -webkit-shape-outside:circle();
+        shape-outside:circle();
+        max-width: 800px;
+    }
+    
+    .profile-image{
+        border-radius: 50%;
+        width: 250px;
+        float: left;
+        margin-right:2rem; 
+        margin-top: 2rem;
+        border-radius: 50%;
+        -webkit-shape-outside:circle();
+        shape-outside:circle()
+    
+    }
+
+    .about-text{
+        text-align: left;
+    }
+
+    .skill-col{
+        width: 50%;
+        align-self: flex-start;
+    }
+
+}
+
+@media (min-width: 1400px){
+    .content-center-container{
+
+        width: 75%;
+    }
+
+    .about-content{
+        float: left; 
+        border-radius: 50%;
+        -webkit-shape-outside:circle();
+        shape-outside:circle();
+        max-width: 800px;
+    }
+    
+    .profile-image{
+        border-radius: 50%;
+        width: 250px;
+        float: left;
+        margin-right:2rem; 
+        margin-top: 2rem;
+        border-radius: 50%;
+        -webkit-shape-outside:circle();
+        shape-outside:circle()
+    
+    }
+
+    .about-text{
+        text-align: left;
+    }
+
+    .skill-col{
+        width: 33.333%;
+        align-self: flex-start;
+    }
+
+    
+
+}

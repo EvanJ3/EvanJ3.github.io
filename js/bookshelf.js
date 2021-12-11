@@ -18,7 +18,6 @@ function GenerateBookCard(book_title='A Gentleman In Moscow',author_name='Amor T
   card_title.innerText = book_title
 
   var card_detail = document.createElement('p')
-  var quote = '“We imagine that when we are thrown out of our usual ruts all is lost, but it is only then that what is new and good begins. While there is life there is happiness. There is much, much before us.” '
   card_detail.className = 'card-text'
   var card_quote = quote + '\n \n' + '- ' + author_name + ', ' + book_title
   card_detail.innerText = card_quote
@@ -42,10 +41,19 @@ function GenerateBookCard(book_title='A Gentleman In Moscow',author_name='Amor T
   return card_div
 }
 
+var books = d3.csv('./csv_files/books.csv',function(data){
+	return {
+		title: data.Title,
+		author_first: data.Author_First,
+		author_last: data.Author_Last,
+    image_path: data.Image_Path,
+	}
+}).then(function(books){
 
-function GenerateBookshelf(){
-  var book_section = document.createElement('section')
-  book_section.id = 'Bookshelf-Section'
+
+  //var book_section = document.createElement('section')
+  //book_section.id = 'Bookshelf-Section'
+  var book_section = document.getElementById("Bookshelf-Section")
 
   var book_container = document.createElement('div')
   book_container.className = 'bookshelf-container'
@@ -53,25 +61,23 @@ function GenerateBookshelf(){
 
   var book_grid = document.createElement('div')
   book_grid.className = 'bookshelf-grid'
-  
 
-  for(j=0; j<15 ; ++j)
-  {
+
+  for (i=0;i<books.length;i++){
+    instance = books[i]
+    instance_author_name = books[i].author_first.concat(' '.concat(books[i].author_last))
     var book_col = document.createElement('div')
     book_col.className = 'col'
-    book_col.id = 'book-' + j.toString()
-    book_entry = GenerateBookCard()
+    book_col.id = 'book-' + i.toString()
+    book_entry = GenerateBookCard(book_title=instance.title,author_name=instance_author_name,quote='',image_path=books[i].image_path,review='nothing')
     book_col.appendChild(book_entry)
     book_grid.appendChild(book_col)
-  } 
-
+  }
   book_container.appendChild(book_grid)
   book_section.appendChild(book_container)
-  document.body.appendChild(book_section)
-}
+  //document.body.appendChild(book_section)
 
-GenerateBookshelf()
-
+})
 
 $('.card').hover(function(){
   $(this).css('box-shadow','0 0 20px rgba(33,33,33,.2)')},function(){

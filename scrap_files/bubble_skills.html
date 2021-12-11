@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+    <meta charset="utf-8">
+    <head>
+        <script src="//d3js.org/d3.v3.min.js"></script>
+    </head>
+    <body>
+
+    <script>
+        var skill_dataset;
+        var skillDataConverter = function(data){
+            return {
+                Skill_ID: data.Skill_ID,
+                Skill_Name: data.Skill_Name,
+                Skill_Group: data.Skill_Group,
+                Skill_Value: +data.Skill_Value
+            };
+        };
+
+        function generateVisualization(skill_dataset){
+
+            var svg_height = 1500;
+            var svg_width = 2000;
+
+            var svg = d3.select("body")
+                .append("svg")
+                .attr("height", svg_height)
+                .attr("width", svg_width);
+
+            var Circles = svg.selectAll("circle")
+                .data(skill_dataset)
+                .enter()
+                .append("circle");
+            
+            
+            
+            Circles.attr("cx",function(data,index){
+                let x_margin_left = 25;
+                let x_scaling = 200;
+                return index*x_scaling + data.Skill_Value/10 + x_margin_left;
+            })
+            Circles.attr("cy", svg_height/10)
+
+            Circles.attr("r", function(data){
+                return Math.sqrt(data.Skill_Value*10);
+            })
+
+            Circles.attr("fill", function(data){
+                if (data.Skill_Group == 'Machine Learning'){
+                    return 'blue';
+                }else if (data.Skill_Group == 'Computer Science'){
+                    return 'red';
+                }else if (data.Skill_Group == 'Databases') {
+                    return 'yellow';
+                }else if (data.Skill_Group == 'Web Development') {
+                    return 'green';
+                }else{
+                    return 'black';
+                }
+            });
+
+
+            svg.selectAll("text")
+                .data(skill_dataset)
+                .enter()
+                .append("text")
+                .text(function(data){
+                    return data.Skill_Name;
+                })
+                .attr("x",function(data,index){
+                    let x_margin_left = 25;
+                    let x_scaling = 200;
+                    return index*x_scaling + data.Skill_Value/10 + x_margin_left;
+                })
+                .attr("y",svg_height/10)
+                .attr("font-family","sans-serif")
+                .attr("font-size","11px")
+                .attr("text-anchor","middle")
+                .attr("fill","black");
+
+            
+        }
+
+        d3.csv("csv_files/skills_test.csv", skillDataConverter,function(error,data){
+            
+            if (error){console.log(error)};
+            skill_dataset = data;
+            generateVisualization(skill_dataset);
+        })
+
+        
+        
+    </script>
+</body>
+
