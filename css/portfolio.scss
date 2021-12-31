@@ -4,6 +4,7 @@
 @import "_footer";
 @import "_mixins";
 @import "_animations";
+@import "_cards";
 
 
 .project-container{
@@ -17,104 +18,11 @@
     flex-direction: column;
 }
 
-.bookshelf-grid{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 48px;
-    margin-bottom: 48px;
-    margin-left: 48px;
-    margin-right: 48px;
-    box-sizing: border-box;
-    color: black;
-}
-
-.bookshelf-container{
-    
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    box-sizing: border-box;
-
-}
 
 
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    word-wrap: break-word;
-    background-color: #ffffff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-    box-sizing: border-box;
-}
-
-
-
-.card-img{
-    border-top-left-radius: calc(.25rem - 1px);
-    border-top-right-radius: calc(.25rem - 1px);
-    width: 100%;
-    vertical-align: middle;
-    box-sizing: border-box;
-
-}
-
-.card-body{
-    flex: 1 1 auto;
-    padding: 1rem 1rem;
-    box-sizing: border-box;
-    word-wrap: break-word;
-
-}
-
-.card-title{
-    margin-bottom: .5rem;
-    font-size: 1.25rem;
-    font-weight: bold;
-    box-sizing: border-box;
-    text-decoration: underline;
-    
-
-}
-
-.card-text{
-    margin-bottom: 0;
-    margin-top: 0;
-    box-sizing: border-box;
-    word-wrap: break-word;
-    //font-style: italic;
-}
-
-.view-project-button{
-    display: flex;
-    border-radius: 12px;
-    margin-top: 15px;
-    margin-bottom: 0;
-    padding: 10px;
-    text-align: center;
-    color: black;
-    margin-left: auto;
-    margin-right: auto;
-
-    > a{
-        color:black;
-    }
-    
-    &:hover{
-        box-shadow:0 0 20px rgba(33,33,33,.2);
-    }
-
-}
 
 @media (max-width: 575.98px){
 
-
-    .col{
-        width: 100%;
-    }
 
     .content-center-container{
         width: 100%;
@@ -123,10 +31,6 @@
 
 @media (min-width: 576px) and (max-width:991.98px){
 
-    .col{
-        width: 50%;
-    }
-
     .content-center-container{
         width: 75%;
     }
@@ -134,9 +38,6 @@
 
 @media (min-width:992px) and (max-width:1199.98px){
 
-    .col{
-        width: 33.333%;
-    }
 
     .content-center-container{
         width: 70%;
@@ -145,13 +46,6 @@
 
 @media (min-width: 1200px) {
 
-    .bookshelf-container{
-        max-width: 1200px;
-    }
-
-    .col{
-        width: 33.333%;
-    }
 
     .content-center-container{
         width: 750px;

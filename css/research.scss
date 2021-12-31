@@ -7,11 +7,7 @@
 @import "_cards";
 
 
-.lead-heading{
-    color: black;
-    text-decoration: underline;
 
-}
 
 .intro-section{
     display: flex;
@@ -19,21 +15,6 @@
     justify-content: center;
     align-items: center;
     margin: 2.5rem;
-}
-
-.lead-text{
-    color: black;
-    text-align: center;
-}
-
-.lead-text-container{
-    display: flex;
-    flex-direction: column;
-    max-width: 1000px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
 }
 
 .annotation-section{

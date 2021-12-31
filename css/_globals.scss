@@ -54,6 +54,27 @@ a, a:visited, a:hover{
 
 }
 
+.lead-text{
+    color: black;
+    text-align: center;
+}
+
+.lead-text-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.lead-heading{
+    color: black;
+    text-decoration: underline;
+
+}
+
 .col{
     flex: 0 0 auto;
     max-width: 100%;
