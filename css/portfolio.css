@@ -660,6 +660,7 @@ button, .button {
 .card-img {
   margin-bottom: .25rem;
   border-radius: 5%;
+  max-width: 300px;
 }
 
 .card-container {
