@@ -7,7 +7,6 @@ class Mandelbrot {
         
         this.initialize()
         
-
     };
 
     initialize() {
@@ -18,19 +17,33 @@ class Mandelbrot {
         this.canvas_height = (this.window_height - this.navbar_height - this.footer_height);
         this.canvas_width = this.window_width;
 
-        if (this.canvas_width/2 !== 0){
-            this.canvas_width = this.canvas_width-1
-        };
 
-        if (this.canvas_height/2 !==0){
-            this.canvas_height = this.canvas_height-1
-        };
+        var scale = window.devicePixelRatio;
+        
+        
+
+        //if (this.canvas_width % 2 !== 0){
+            //this.canvas_width = this.canvas_width-1
+        //};
+
+        //if (this.canvas_height % 2 !==0 ){
+         //   this.canvas_height = this.canvas_height-1
+        //};
+
+        if (scale != 1){
+            while(this.canvas_width % scale != 0 && this.canvas_width %2 != 0){
+                this.canvas_width = this.canvas_width -1
+            }
+            while(this.canvas_height % scale != 0 && this.canvas_height % 2 != 0){
+                this.canvas_height = this.canvas_height -1
+            }
+        }
+
 
         this.canvas_container = document.querySelector('.canvas-container');
         this.canvas_container.style.width = this.canvas_width
         this.canvas_container.style.height = this.canvas_height
 
-        
         
         this.x_start= -1.5;
         this.x_stop = 0.5;
