@@ -15,24 +15,22 @@ class Mandelbrot {
         this.window_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         this.navbar_height = document.querySelector('.header').offsetHeight;
         this.footer_height = document.querySelector('.footer-fixed-bottom').offsetHeight;
-        this.canvas_height = (this.window_height - this.navbar_height - this.footer_height - 2);
+        this.canvas_height = (this.window_height - this.navbar_height - this.footer_height);
         this.canvas_width = this.window_width;
-        this.canvas_container = document.querySelector('.canvas-container')
-        this.canvas_container.style.width = this.canvas_width
-        this.canvas_container.style.height = this.canvas_height
-
-        //this.x_start= -2.5;
-        //this.x_stop = 1.0;
-        //this.y_start = 1.0;
-        //this.y_stop = 0.0;
 
         if (this.canvas_width/2 !== 0){
             this.canvas_width = this.canvas_width-1
-        }
+        };
+
         if (this.canvas_height/2 !==0){
             this.canvas_height = this.canvas_height-1
-        }
+        };
 
+        this.canvas_container = document.querySelector('.canvas-container');
+        this.canvas_container.style.width = this.canvas_width
+        this.canvas_container.style.height = this.canvas_height
+
+        
         
         this.x_start= -1.5;
         this.x_stop = 0.5;
