@@ -644,6 +644,7 @@ button, .button {
   margin-top: 25px;
   margin-bottom: 60px;
   overflow: auto;
+  width: 100%;
 }
 
 .lead-container {
@@ -656,8 +657,6 @@ button, .button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-item-align: center;
-      align-self: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -678,11 +677,13 @@ button, .button {
   color: black;
   margin-top: 60px;
   margin-bottom: 5px;
+  text-align: center;
 }
 
 .course-lead {
   color: black;
   text-decoration: underline;
+  text-align: center;
 }
 
 .student-count-bar {
@@ -707,7 +708,7 @@ button, .button {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
   border-collapse: collapse;
-  width: 70%;
+  width: 100%;
 }
 
 #teaching td, #teaching th {
