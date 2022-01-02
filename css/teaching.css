@@ -748,6 +748,7 @@ button, .button {
   border-radius: 50%;
   width: 250px;
   float: none;
+  max-height: 200px;
   border-radius: 50%;
   shape-outside: none;
   padding-left: 25px;
@@ -809,6 +810,17 @@ button, .button {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .course-button {
+    color: white;
+    background-color: #a3854d;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 

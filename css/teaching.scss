@@ -106,7 +106,7 @@
   border-radius: 50%;
   width: 250px;
   float: none;
-
+  max-height: 200px;
   border-radius: 50%;
   -webkit-shape-outside:none;
   shape-outside:none;
@@ -149,6 +149,18 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    .course-button{
+      color: white;
+      background-color: rgb(163, 133, 77);
+      border-radius: 50px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
 
 }
