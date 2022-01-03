@@ -685,8 +685,23 @@ button, .button {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   text-decoration: underline;
-  margin-top: 1rem;
-  margin-bottom: .75rem;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+.checked {
+  color: orange;
+}
+
+.card-subtitle {
+  color: black;
+  text-align: left;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  font-style: italic;
+  font-size: small;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .card-text {
@@ -694,8 +709,7 @@ button, .button {
   text-align: left;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
-  margin-top: .75rem;
-  margin-bottom: 1rem;
+  margin-top: 2px;
 }
 
 .card-button-container {
@@ -725,6 +739,36 @@ button, .button {
 .card-button:hover {
   -webkit-box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
           box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+}
+
+.card-quote {
+  color: black;
+  text-align: left;
+  font-style: italic;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 10px;
+}
+
+.card-author {
+  color: black;
+  text-align: right;
+  font-style: italic;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-top: 2px;
+  margin-bottom: 15px;
+}
+
+.card-rating-container {
+  margin-left: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.card-rating {
+  text-align: left;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .card-section {

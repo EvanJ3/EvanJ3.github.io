@@ -51,8 +51,6 @@ var books = d3.csv('./csv_files/books.csv',function(data){
 }).then(function(books){
 
 
-  //var book_section = document.createElement('section')
-  //book_section.id = 'Bookshelf-Section'
   var book_section = document.getElementById("Bookshelf-Section")
 
   var book_container = document.createElement('div')
