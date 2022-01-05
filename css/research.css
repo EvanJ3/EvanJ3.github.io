@@ -788,6 +788,80 @@ button, .button {
   margin: 2.5rem;
 }
 
+.card-has-fade {
+  visibility: hidden;
+}
+
+@-webkit-keyframes card-fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes card-fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card-fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes card-fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.card-fade-in {
+  -webkit-animation: card-fade-in 200ms ease-in-out forwards;
+          animation: card-fade-in 200ms ease-in-out forwards;
+}
+
+.card-fade-out {
+  -webkit-animation: card-fade-out 200ms ease-in-out forwards;
+          animation: card-fade-out 200ms ease-in-out forwards;
+}
+
 .intro-section {
   display: -webkit-box;
   display: -ms-flexbox;

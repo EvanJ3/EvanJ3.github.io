@@ -143,3 +143,56 @@
     margin: 2.5rem;
 
 }
+
+.card-has-fade{
+    visibility: hidden;
+}
+
+
+@keyframes card-fade-in{
+    from{
+        visibility: hidden;
+        opacity: 0;
+
+    }
+
+    1%{
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to{
+        visibility: visible;
+        opacity: 1;
+    }
+
+}
+
+@keyframes card-fade-out{
+    from{
+        visibility: visible;
+        opacity: 1;
+
+    }
+
+    99%{
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to{
+        visibility: hidden;
+        opacity: 0;
+    }
+
+}
+
+.card-fade-in{
+    animation: card-fade-in 200ms ease-in-out forwards;
+}
+
+
+
+.card-fade-out{
+    animation: card-fade-out 200ms ease-in-out forwards;
+}

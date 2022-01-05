@@ -1,7 +1,97 @@
+current_page = 0;
+transition_time = 500;
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function RightPagination(){
+  var card_section = document.getElementById("all-fiction-card-container");
+  FadeOutCards();
+  await sleep(transition_time)
+  card_section.innerHTML = ''
+  current_page = current_page+1;
+  if(current_page>max_page_index){
+    current_page = 0
+  }
+  UpdateFictionPagination(paged_data)
+}
+
+async function LeftPagination(){
+  var card_section = document.getElementById("all-fiction-card-container");
+  FadeOutCards();
+  await sleep(transition_time)
+  card_section.innerHTML = ''
+  current_page = current_page-1;
+  if(current_page<0){
+    current_page = max_page_index
+  }
+  UpdateFictionPagination(paged_data)
+}
+
+function resolveAfter2Seconds(x) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(x);
+    }, 2000);
+  });
+}
+
+async function f1() {
+  var x = await resolveAfter2Seconds(10);
+  console.log(x); // 10
+}
+
+function FadeOutCards(){
+  var card_section = document.getElementById("all-fiction-card-container");
+  var card_children = card_section.children;
+  for (let i=0;i<card_children.length;i++){
+    let card_child_i = card_children[i]
+    card_child_i.classList = 'card card-fade-out'
+  }
+}
+
+
+function DetermineMaxPageItems(){
+  var mobile_min_width = 450;
+  var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  var max_page_items = 6; //default
+  if(width<=mobile_min_width){
+    max_page_items = 1;
+  }
+  return max_page_items
+}
+
+function SplitPages(data,max_page_items){
+  var total_items = data.length;
+  var total_pages = Math.ceil(total_items/max_page_items);
+  var page_array = [];
+  var page_counter = 0;
+  var page_item_counter = -1; 
+
+
+  for (let i=0;i<total_pages;i++){
+    let page_i = [];
+    page_array.push(page_i)
+  }
+
+  for (let j=0;j<total_items;j++){
+    page_item_counter++;
+    if (page_item_counter == max_page_items){
+      page_item_counter = 0;
+      page_counter ++; 
+    }
+    
+    page_array[page_counter].push(data[j])
+    
+  }
+  return page_array
+}
+
+
 
 function GenerateFictionBookCard(id,image_path,book_title,author_name,review_score,quote){
   var card_body = document.createElement('div')
-  card_body.className = 'card'
+  card_body.className = 'card card-fade-in'
 
   var card_img = document.createElement('img')
   card_img.className = 'card-img'
@@ -68,7 +158,45 @@ function GenerateFictionBookCard(id,image_path,book_title,author_name,review_sco
 
 }
 
-var FictionBooks = d3.csv('./csv_files/Fiction_book_list.csv',function(data){
+
+function UpdateFictionPagination(paged_data){
+  var book_section = document.getElementById("all-fiction-card-container");
+  var page_i_data = paged_data[current_page];
+  var page_i_items = page_i_data.length;
+  for(let i=0;i<page_i_items;i++){
+    let instance = page_i_data[i]
+    let author_name_i = '- ' + instance.author_first + ' ' + instance.author_last
+    let quote_i = '"' + instance.quote + '"'
+    let book_entry = GenerateFictionBookCard(instance.Book_ID,instance.image_path,instance.title,author_name_i,instance.review_score,quote_i)
+    book_section.appendChild(book_entry)
+
+  }
+  }
+
+function AddPaginationElements(){
+  var pagination_container = document.getElementById("fiction-pagination-container");
+
+  var next_left_arrow = document.createElement('img')
+  next_left_arrow.className = 'pagination-left'
+  next_left_arrow.src = './icons/next.png'
+
+  next_left_arrow.addEventListener("click", LeftPagination); 
+  
+  var next_right_arrow = document.createElement('img')
+  next_right_arrow.className = 'pagination-right'
+  next_right_arrow.src = './icons/next.png'
+  next_right_arrow.addEventListener("click", RightPagination);
+  
+  var pagination_text = document.createElement('p')
+  pagination_text.className = 'pagination-text'
+  pagination_text.innerHTML = 'View More'
+  
+  pagination_container.appendChild(next_left_arrow)
+  pagination_container.appendChild(pagination_text)
+  pagination_container.appendChild(next_right_arrow)
+}
+
+FictionBooks = d3.csv('./csv_files/Fiction_book_list.csv',function(data){
 	return {
     id: data.Book_ID ,
 		title: data.Title,
@@ -79,15 +207,15 @@ var FictionBooks = d3.csv('./csv_files/Fiction_book_list.csv',function(data){
     quote:data.Quote
 	}
 }).then(function(FictionBooks){
-var max_page_items = 6;
-var book_section = document.getElementById("all-fiction-card-container");
+    max_page_items = DetermineMaxPageItems();
+    paged_data = SplitPages(FictionBooks,max_page_items);
+    max_page_index = paged_data.length -1;
+    UpdateFictionPagination(paged_data);
+    AddPaginationElements();
+}
 
-  for (let i=0;i<max_page_items;i++){
-    let instance = FictionBooks[i]
-    let author_name_i = '- ' + instance.author_first + ' ' + instance.author_last
-    let quote_i = '"' + instance.quote + '"'
-    let book_entry = GenerateFictionBookCard(instance.Book_ID,instance.image_path,instance.title,author_name_i,instance.review_score,quote_i)
-    book_section.appendChild(book_entry)
-  }
+)
 
-})
+
+
+

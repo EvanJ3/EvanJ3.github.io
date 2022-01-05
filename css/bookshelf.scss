@@ -14,12 +14,42 @@
     margin: 2.5rem;
 }
 
+.pagination-right{
+    height: 22px;
+    width: 22px;
+    &:hover{
+        
+        transform: scale(1.02);
+        box-shadow:0 0 20px rgba(33,33,33,.2);
+    }
+}
 
+.pagination-left{
+    transform: rotate(180deg);
+    height: 22px;
+    width: 22px;
+    &:hover{
+        
+        transform: scale(1.02);
+        transform: rotate(180deg);
+        box-shadow:0 0 20px rgba(33,33,33,.2);
+    }
+}
 
+.pagination-container{
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+    max-width: 1000px;
+}
 
-
-
-
+.pagination-text{
+    color: black;
+    text-align: center;
+}
 
 
 

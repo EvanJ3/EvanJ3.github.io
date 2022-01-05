@@ -788,6 +788,80 @@ button, .button {
   margin: 2.5rem;
 }
 
+.card-has-fade {
+  visibility: hidden;
+}
+
+@-webkit-keyframes card-fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes card-fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes card-fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes card-fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.card-fade-in {
+  -webkit-animation: card-fade-in 200ms ease-in-out forwards;
+          animation: card-fade-in 200ms ease-in-out forwards;
+}
+
+.card-fade-out {
+  -webkit-animation: card-fade-out 200ms ease-in-out forwards;
+          animation: card-fade-out 200ms ease-in-out forwards;
+}
+
 .bookshelf-section {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -803,5 +877,57 @@ button, .button {
       -ms-flex-align: center;
           align-items: center;
   margin: 2.5rem;
+}
+
+.pagination-right {
+  height: 22px;
+  width: 22px;
+}
+
+.pagination-right:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+}
+
+.pagination-left {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  height: 22px;
+  width: 22px;
+}
+
+.pagination-left:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+}
+
+.pagination-container {
+  margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 50%;
+  max-width: 1000px;
+}
+
+.pagination-text {
+  color: black;
+  text-align: center;
 }
 /*# sourceMappingURL=bookshelf.css.map */
