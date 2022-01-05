@@ -28,18 +28,7 @@ async function LeftPagination(){
   UpdateFictionPagination(paged_data)
 }
 
-function resolveAfter2Seconds(x) {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(x);
-    }, 2000);
-  });
-}
 
-async function f1() {
-  var x = await resolveAfter2Seconds(10);
-  console.log(x); // 10
-}
 
 function FadeOutCards(){
   var card_section = document.getElementById("all-fiction-card-container");
@@ -53,11 +42,13 @@ function FadeOutCards(){
 
 function DetermineMaxPageItems(){
   var mobile_min_width = 450;
+
   var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
   var max_page_items = 6; //default
   if(width<=mobile_min_width){
     max_page_items = 1;
   }
+
   return max_page_items
 }
 

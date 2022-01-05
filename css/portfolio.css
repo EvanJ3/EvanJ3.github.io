@@ -853,13 +853,13 @@ button, .button {
 }
 
 .card-fade-in {
-  -webkit-animation: card-fade-in 200ms ease-in-out forwards;
-          animation: card-fade-in 200ms ease-in-out forwards;
+  -webkit-animation: card-fade-in 500ms ease-in-out forwards;
+          animation: card-fade-in 500ms ease-in-out forwards;
 }
 
 .card-fade-out {
-  -webkit-animation: card-fade-out 200ms ease-in-out forwards;
-          animation: card-fade-out 200ms ease-in-out forwards;
+  -webkit-animation: card-fade-out 500ms ease-in-out forwards;
+          animation: card-fade-out 500ms ease-in-out forwards;
 }
 
 .project-container {
