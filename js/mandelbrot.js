@@ -16,8 +16,6 @@ class Mandelbrot {
         this.footer_height = document.querySelector('.footer-fixed-bottom').offsetHeight;
         this.canvas_height = (this.window_height - this.navbar_height - this.footer_height);
         this.canvas_width = this.window_width;
-
-
         var scale = window.devicePixelRatio;
         
         
