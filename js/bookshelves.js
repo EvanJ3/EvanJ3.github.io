@@ -914,7 +914,7 @@ function AddPaginationElements(page_type){
     }
 
 
-FictionBooks = d3.csv('./csv_files/Fiction_book_list.csv',function(data){
+FictionBooks = d3.csv('./csv/Bookshelf_csv/Fiction_book_list.csv',function(data){
 	return {
     id: data.Book_ID ,
 	title: data.Title,
@@ -934,7 +934,7 @@ FictionBooks = d3.csv('./csv_files/Fiction_book_list.csv',function(data){
 
 )
 
-NonFictionBooks = d3.csv('./csv_files/Non_Fiction_book_list.csv',function(data){
+NonFictionBooks = d3.csv('./csv/Bookshelf_csv/Non_Fiction_book_list.csv',function(data){
 	return {
     id: data.Book_ID ,
 	title: data.Title,
@@ -954,7 +954,7 @@ NonFictionBooks = d3.csv('./csv_files/Non_Fiction_book_list.csv',function(data){
 
 )
 
-TextBooks = d3.csv('./csv_files/Textbook_list.csv',function(data){
+TextBooks = d3.csv('./csv/Bookshelf_csv/Textbook_list.csv',function(data){
 	return {
     id: data.Book_ID ,
 	title: data.Title,
@@ -974,7 +974,7 @@ TextBooks = d3.csv('./csv_files/Textbook_list.csv',function(data){
 
 )
 
-FavFiction = d3.csv('./csv_files/Favorite_Fiction.csv',function(data){
+FavFiction = d3.csv('./csv/Bookshelf_csv/Favorite_Fiction.csv',function(data){
 	return {
     id: data.Book_ID ,
 	title: data.Title,
@@ -994,7 +994,7 @@ FavFiction = d3.csv('./csv_files/Favorite_Fiction.csv',function(data){
 
 )
 
-FavNonFiction = d3.csv('./csv_files/Favorite_Non_Fiction.csv',function(data){
+FavNonFiction = d3.csv('./csv/Bookshelf_csv/Favorite_Non_Fiction.csv',function(data){
 	return {
     id: data.Book_ID ,
 	title: data.Title,
@@ -1014,7 +1014,7 @@ FavNonFiction = d3.csv('./csv_files/Favorite_Non_Fiction.csv',function(data){
 
 )
 
-FavTextbook = d3.csv('./csv_files/Favorite_Textbook.csv',function(data){
+FavTextbook = d3.csv('./csv/Bookshelf_csv/Favorite_Textbook.csv',function(data){
 	return {
     id: data.Book_ID ,
 	title: data.Title,

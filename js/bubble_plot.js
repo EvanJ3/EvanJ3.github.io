@@ -1,5 +1,5 @@
 
-var test_nodes = d3.csv('./csv_files/skill_data.csv',function(data){
+var test_nodes = d3.csv('./csv/Skill_Data_csv/skill_data.csv',function(data){
 	return {
 		Skill_Name: data.Skill_Name,
 		Skill_Type: data.Skill_Type,
