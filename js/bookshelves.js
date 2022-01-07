@@ -826,8 +826,8 @@ function GenerateNonFictionCards(data){
     var non_fiction_cards = [];
     for(let i=0;i<page_i_items;i++){
         let instance = page_i_data[i]
-        let author_name_i = '- ' + instance.author_first + ' ' + instance.author_last
-        let description_i = '"' + instance.description + '"'
+        let author_name_i = instance.author_first + ' ' + instance.author_last
+        let description_i = instance.description
         let book_entry = GenerateNonFictionBookCard(instance.Book_ID,instance.image_path,instance.title,author_name_i,instance.review_score,description_i)
         non_fiction_cards.push(book_entry)
         }
@@ -841,8 +841,8 @@ function GenerateTextbookCards(data){
     var non_fiction_cards = [];
     for(let i=0;i<page_i_items;i++){
         let instance = page_i_data[i]
-        let author_name_i = '- ' + instance.author_first + ' ' + instance.author_last
-        let description_i = '"' + instance.description + '"'
+        let author_name_i = instance.author_first + ' ' + instance.author_last
+        let description_i = instance.description
         let book_entry = GenerateNonFictionBookCard(instance.Book_ID,instance.image_path,instance.title,author_name_i,instance.review_score,description_i)
         non_fiction_cards.push(book_entry)
         }
@@ -855,8 +855,8 @@ function GenerateFavFictionCards(data){
     var non_fiction_cards = [];
     for(let i=0;i<page_i_items;i++){
         let instance = page_i_data[i]
-        let author_name_i = '- ' + instance.author_first + ' ' + instance.author_last
-        let description_i = '"' + instance.description + '"'
+        let author_name_i = instance.author_first + ' ' + instance.author_last
+        let description_i = instance.description
         let book_entry = GenerateNonFictionBookCard(instance.Book_ID,instance.image_path,instance.title,author_name_i,instance.review_score,description_i)
         non_fiction_cards.push(book_entry)
         }
@@ -869,8 +869,8 @@ function GenerateFavNonFictionCards(data){
     var non_fiction_cards = [];
     for(let i=0;i<page_i_items;i++){
         let instance = page_i_data[i]
-        let author_name_i = '- ' + instance.author_first + ' ' + instance.author_last
-        let description_i = '"' + instance.description + '"'
+        let author_name_i = instance.author_first + ' ' + instance.author_last
+        let description_i = instance.description
         let book_entry = GenerateNonFictionBookCard(instance.Book_ID,instance.image_path,instance.title,author_name_i,instance.review_score,description_i)
         non_fiction_cards.push(book_entry)
         }
@@ -883,8 +883,8 @@ function GenerateFavTextbookCards(data){
     var non_fiction_cards = [];
     for(let i=0;i<page_i_items;i++){
         let instance = page_i_data[i]
-        let author_name_i = '- ' + instance.author_first + ' ' + instance.author_last
-        let description_i = '"' + instance.description + '"'
+        let author_name_i = instance.author_first + ' ' + instance.author_last
+        let description_i = instance.description
         let book_entry = GenerateNonFictionBookCard(instance.Book_ID,instance.image_path,instance.title,author_name_i,instance.review_score,description_i)
         non_fiction_cards.push(book_entry)
         }
