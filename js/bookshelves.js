@@ -895,11 +895,11 @@ function AddPaginationElements(page_type){
 
     let next_left_arrow = document.createElement('img')
     next_left_arrow.className = 'pagination-left'
-    next_left_arrow.src = './icons/next.png'
+    next_left_arrow.src= './icons/arrow-left-circle.svg'
     
     let next_right_arrow = document.createElement('img')
     next_right_arrow.className = 'pagination-right'
-    next_right_arrow.src = './icons/next.png'
+    next_right_arrow.src = './icons/arrow-right-circle.svg'
     
     let pagination_text = document.createElement('p')
     pagination_text.className = 'pagination-text'
@@ -907,28 +907,48 @@ function AddPaginationElements(page_type){
 
     if (page_type == 'fiction'){
         var pagination_container = document.getElementById("fiction-pagination-container");
+        var fiction_card_container = document.getElementById("all-fiction-card-container");
         next_right_arrow.addEventListener("click", RightFictionPagination);
+        fiction_card_container.addEventListener('swiped-right',RightFictionPagination);
+        fiction_card_container.addEventListener('swiped-left',LeftFictionPagination);
         next_left_arrow.addEventListener("click", LeftFictionPagination);
     }else if(page_type == 'nonfiction'){
         var pagination_container = document.getElementById("non-fiction-pagination-container");
+        var non_fiction_card_container = document.getElementById("all-non-fiction-card-container");
         next_right_arrow.addEventListener("click", RightNonFictionPagination);
         next_left_arrow.addEventListener("click", LeftNonFictionPagination);
+        non_fiction_card_container.addEventListener('swiped-left',LeftNonFictionPagination);
+        non_fiction_card_container.addEventListener('swiped-right',RightNonFictionPagination);
     }else if(page_type == 'textbook'){
         var pagination_container = document.getElementById("textbook-pagination-container");
+        var textbook_card_container = document.getElementById("all-textbook-card-container");
         next_right_arrow.addEventListener("click", RightTextbookPagination);
         next_left_arrow.addEventListener("click", LeftTextbookPagination);
+        textbook_card_container.addEventListener("swiped-right", RightTextbookPagination);
+        textbook_card_container.addEventListener("swiped-left", LeftTextbookPagination);
     }else if(page_type == 'fav-fiction'){
         var pagination_container = document.getElementById("fav-fiction-pagination-container");
+        var fav_fiction_card_container = document.getElementById("fav-fiction-card-container");
         next_right_arrow.addEventListener("click", RightFavFictionPagination);
         next_left_arrow.addEventListener("click", LeftFavFictionPagination);
+        fav_fiction_card_container.addEventListener("swiped-right", RightFavFictionPagination);
+        fav_fiction_card_container.addEventListener("swiped-left", LeftFavFictionPagination);
+
     }else if(page_type == 'fav-non-fiction'){
         var pagination_container = document.getElementById("fav-non-fiction-pagination-container");
+        var fav_non_fiction_card_container = document.getElementById("fav-non-fiction-card-container");
         next_right_arrow.addEventListener("click", RightFavNonFictionPagination);
         next_left_arrow.addEventListener("click", LeftFavNonFictionPagination);
+        fav_non_fiction_card_container.addEventListener("swiped-right", RightFavNonFictionPagination);
+        fav_non_fiction_card_container.addEventListener("swiped-left", LeftFavNonFictionPagination);
     }else if(page_type == 'fav-textbook'){
         var pagination_container = document.getElementById("fav-textbook-pagination-container");
+        var fav_textbook_card_container = document.getElementById('fav-textbook-card-container');
         next_right_arrow.addEventListener("click", RightFavTextbookPagination);
         next_left_arrow.addEventListener("click", LeftFavTextbookPagination);
+        fav_textbook_card_container.addEventListener("swiped-right", RightFavTextbookPagination);
+        fav_textbook_card_container.addEventListener("swiped-left", LeftFavTextbookPagination);
+
     }
     
     pagination_container.appendChild(next_left_arrow)

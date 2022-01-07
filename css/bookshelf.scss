@@ -19,19 +19,16 @@
     width: 22px;
     &:hover{
         
-        transform: scale(1.02);
+        transform: scale(1.10);
         box-shadow:0 0 20px rgba(33,33,33,.2);
     }
 }
 
 .pagination-left{
-    transform: rotate(180deg);
     height: 22px;
     width: 22px;
     &:hover{
-        
-        transform: scale(1.02);
-        transform: rotate(180deg);
+        transform: scale(1.10);
         box-shadow:0 0 20px rgba(33,33,33,.2);
     }
 }

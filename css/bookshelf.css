@@ -886,24 +886,20 @@ button, .button {
 }
 
 .pagination-right:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   -webkit-box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
           box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
 }
 
 .pagination-left {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
   height: 22px;
   width: 22px;
 }
 
 .pagination-left:hover {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   -webkit-box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
           box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
 }
