@@ -93,6 +93,7 @@ a, a:visited, a:hover {
 .lead-heading {
   color: black;
   text-decoration: underline;
+  text-align: center;
 }
 
 .col {

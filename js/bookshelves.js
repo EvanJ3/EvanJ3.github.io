@@ -68,6 +68,7 @@ async function RightFictionPagination(){
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
             card_section.appendChild(new_fiction_cards[i])
+            await sleep(transition_time);
         }
     }
 }
@@ -102,6 +103,7 @@ async function LeftFictionPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -114,6 +116,7 @@ async function LeftFictionPagination(){
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
             card_section.appendChild(new_fiction_cards[i])
+            await sleep(transition_time);
         }
     }
 }
@@ -149,6 +152,7 @@ async function RightNonFictionPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -160,7 +164,8 @@ async function RightNonFictionPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -195,6 +200,7 @@ async function LeftNonFictionPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -206,7 +212,8 @@ async function LeftNonFictionPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -241,6 +248,7 @@ async function RightTextbookPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -252,7 +260,8 @@ async function RightTextbookPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -287,6 +296,7 @@ async function LeftTextbookPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -298,7 +308,8 @@ async function LeftTextbookPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -333,6 +344,7 @@ async function RightFavFictionPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -344,7 +356,8 @@ async function RightFavFictionPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -379,6 +392,7 @@ async function LeftFavFictionPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -390,7 +404,8 @@ async function LeftFavFictionPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -425,6 +440,7 @@ async function RightFavNonFictionPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -436,7 +452,8 @@ async function RightFavNonFictionPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -471,6 +488,7 @@ async function LeftFavNonFictionPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -482,7 +500,8 @@ async function LeftFavNonFictionPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -517,6 +536,7 @@ async function RightFavTextbookPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -528,7 +548,8 @@ async function RightFavTextbookPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
@@ -563,6 +584,7 @@ async function LeftFavTextbookPagination(){
         for (let i=num_new_page_items;i<num_old_page_items;i++){
             let old_card_i = old_cards.item(num_new_page_items);
             old_card_i.classList = 'card card-fade-out';
+            await sleep(transition_time);
             old_card_i.remove();
         }
 
@@ -574,7 +596,8 @@ async function LeftFavTextbookPagination(){
             old_card_i.replaceWith(new_non_fiction_cards[i]);
         }
         for (let i=num_old_page_items;i<num_new_page_items;i++){
-            card_section.appendChild(new_non_fiction_cards[i])
+            card_section.appendChild(new_non_fiction_cards[i]);
+            await sleep(transition_time);
         }
     }
 }
