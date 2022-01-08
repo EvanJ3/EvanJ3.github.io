@@ -5,6 +5,8 @@
 @import "_mixins";
 @import "_animations";
 @import "_cards";
+@import "skill_table";
+@import "skill_bubbles";
 
 section{
     padding-top: 15px;
@@ -135,12 +137,6 @@ section{
 
 }
 
-
-.skills-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 
 

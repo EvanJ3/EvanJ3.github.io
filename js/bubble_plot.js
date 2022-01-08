@@ -23,8 +23,8 @@ var test_nodes = d3.csv('./csv/Skill_Data_csv/skill_data.csv',function(data){
 	};
 	
 	var colorScale = d3.schemeTableau10;
-	var w = 1000;
-	var h = 750;
+	var w = 700;
+	var h = 700;
 
 	var y_center = Math.floor(h/2);
 	var x_center = Math.floor(w/2);
@@ -60,26 +60,12 @@ var test_nodes = d3.csv('./csv/Skill_Data_csv/skill_data.csv',function(data){
 };
 
 	var attracting_edges = get_attracting_edges(nodes);
-
-	function create_legend(data){
-		
-		for(i=0;i<data.length;i++){
-
-
-		}
-	}
 	
 	
 
 var simulation = d3.forceSimulation(nodes)
 	.force('charge', d3.forceManyBody().strength(1))
-	//.force('radial',d3.forceRadial().strength(.7).radius(10).x(x_center).y(y_center))
 	.force("boundary", forceBoundary(0,0,w, h).strength(.5))
-	//.force("center", d3.forceCenter(x_center,y_center).strength(1))
-	//.force('x1', d3.forceX().strength(-1).x(function(d) {return 0;}))
-	//.force('x2', d3.forceX().strength(-1).x(function(d) {return w;}))
-	//.force('y1', d3.forceY().strength(-1).y(function(d) {return 0;}))
-	//.force('y2', d3.forceY().strength(-1).y(function(d) {return h;}))
 	.force('collision', d3.forceCollide().radius(function(d) {return d.radius;}).strength(.7))
 	.force('link',d3.forceLink().links(attracting_edges).id(function(d){return d.name}).strength(1))
 	.on('tick', ticked);

@@ -863,6 +863,110 @@ button, .button {
           animation: card-fade-out 500ms ease-in-out forwards;
 }
 
+.table-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 500px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.lead-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.skill-description {
+  color: black;
+}
+
+.skill-lead {
+  color: black;
+  text-decoration: underline;
+}
+
+.skill-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.skill-bar {
+  background-color: #363636;
+  border-radius: 10px;
+  height: 10px;
+}
+
+#skill {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+#skill td, #skill th {
+  border: 0px solid rgba(48, 47, 47, 0.1);
+  padding: 8px;
+  width: 25%;
+}
+
+#skill tr:hover {
+  background-color: rgba(51, 50, 50, 0.1);
+}
+
+#skill th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #363636;
+  color: white;
+}
+
+.skill-bubble-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 section {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -1013,18 +1117,6 @@ section {
 
 .about-text.bold-text {
   font-weight: 600;
-}
-
-.skills-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .skill-lead {
