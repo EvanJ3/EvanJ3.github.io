@@ -18,7 +18,11 @@
     flex-direction: column;
 }
 
-
+.project-lead-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
 
 @media (max-width: 575.98px){
