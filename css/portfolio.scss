@@ -24,6 +24,50 @@
     width: 100%;
 }
 
+.annotation-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem;
+}
+
+.replication-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem;
+
+}
+
+.research-lead-image-container{
+
+}
+
+.research-lead-image{
+
+}
+
+
+.working-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem;
+
+}
+
+.original-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem;
+
+}
+
 
 @media (max-width: 575.98px){
 
