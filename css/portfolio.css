@@ -700,6 +700,8 @@ button, .button {
           flex-direction: row;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .card-tag {
@@ -885,6 +887,54 @@ button, .button {
 .card-fade-out {
   -webkit-animation: card-fade-out 500ms ease-in-out forwards;
           animation: card-fade-out 500ms ease-in-out forwards;
+}
+
+.pagination-right {
+  height: 22px;
+  width: 22px;
+}
+
+.pagination-right:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+}
+
+.pagination-left {
+  height: 22px;
+  width: 22px;
+}
+
+.pagination-left:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+          box-shadow: 0 0 20px rgba(33, 33, 33, 0.2);
+}
+
+.pagination-container {
+  margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 50%;
+  max-width: 1000px;
+}
+
+.pagination-text {
+  color: black;
+  text-align: center;
 }
 
 .project-container {

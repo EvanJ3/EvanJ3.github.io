@@ -700,6 +700,8 @@ button, .button {
           flex-direction: row;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .card-tag {

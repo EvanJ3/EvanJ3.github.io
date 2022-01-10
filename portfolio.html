@@ -11,6 +11,7 @@
         <link href="css/portfolio.css" rel="stylesheet" type="text/css">
 		<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
 		<script src="jQueryAssets/jquery.ui-1.10.4.slider.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js'></script>
         <title>Portfolio</title>
     </head>
 
@@ -55,7 +56,7 @@
             </div>
         </section>
 
-        <section class="card-section">
+        <section class="card-section" id='Current-Projects-Section'>
             <h2 class="lead-heading">Current Projects</h2>
             <div class="lead-text-container">
                 <p class="lead-text">
@@ -63,55 +64,15 @@
                     grounding by holding onto a couple of projects which I actively work on in my spare capacity. 
                 </p>
             </div>
-            <div class="card-container">
-                <div class="card">
-                    <img class="card-img" src="images/Project_Images/signature_paws_website.jpg" alt="SignaturePaws.org">
-                    <div class="card-title-container">
-                        <p class="card-title">SignaturePaws.org V2</p>
-                    </div>
-                    <div class="card-text-container">
-                        <p class="card-text">Previously I created this website using Wix due to a time crunch, but now that I have some extra time
-                            I've taken to cloning the website with a few modification from scratch. Why pay someone to manage your site when you
-                            can do it yourself?
-                        </p>
-                    </div>
-                    <div class="card-button-container">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/EvanJ3/Deep-Dubber"><button  class="card-button">View</button></a>
-                    </div>
-                </div>
-                
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/aj_homes_logo_filled.png" alt="SignaturePaws.org">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">Andrew Jones Custom Homes.com</h5>
-                        <p class="card-text">I'm working on creating a website for my dad's business to showcases some of the great homes
-                            he has built over the years while also serving as a tool to recurit talented sub-contractors to join his ongoing projects.
-                            Similar to my other sights everything is built from scratch.
-                        </p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/EvanJ3/Andrew-Jones-Homes"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img" src="images/Research_Images/Deep_Dub_Thumbnail.png">
-                    <div class="card-title-container">
-                        <p class="card-title">DeepDubber</p>
-                    </div>
-                    <div class="card-text-container">
-                        <p class="card-text">Since the emergence of transformers in the field of natural language processing, which have
-                            vastly improved our capacity for langague translation, I have been working to extend this concept to the realm of audio dubbing.
-                            Using transformer networks for the translation task, and an additional GAN which transforms a source video into the target langague video
-                            I aim to achieve an AI assisted audio/visual dubbing platform.
-                        </p>
-                    </div>
-                    <div class="card-button-container">
-                        <a target="_blank" rel="noopener noreferrer" href="https://github.com/EvanJ3/Deep-Dubber"><button  class="card-button">View</button></a>
-                    </div>
-                </div>
+            <div class="card-container" id="current-projects-container">
+
+            </div>
+            <div class='pagination-container' id="current-projects-pagination-container">
+
+            </div>
         </section>
 
-        <section class="card-section">
+        <section class="card-section" id="Machine-Learning-Projects-Section">
             <h2 class="lead-heading">Machine Learning Projects</h2>
             <div class="lead-text-container">
                 <p class="lead-text">
@@ -120,43 +81,15 @@
                     I may revist some of them evenutally, but for the most part each of the projects in the collection below are some of my "finished" works.
                 </p>
             </div>
-            <div class="card-container">
-                
-                    <div class="card" id="card-1" style="box-shadow: none;">
-                        <img class="card-img" src="images/Project_Images/big_brother.jpg" alt="Big-Brother">
-                        <div class="card-body" id="card-body-1">
-                            <h5 class="card-title">Big Brother Oracle</h5>
-                            <p class="card-text">Big Brother is a popular reality show on CBS where contestants live in a house isolated entirely from the outside world for a chance to win a half-million dollar grand prize. In this project, I collected data from all seasons and all previous players in an effort to predict winning probablities for each player on a rolling basis as the game progresses.</p>
-                            <div class="card-button-container">
-                                <a target="_blank" rel="noopener noreferrer" href="#"><button  class="card-button">View</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" id="card-1" style="box-shadow: none;">
-                        <img class="card-img" src="images/Project_Images/bridging_the_gap_logo.png" alt="Bridging the Gap Logo">
-                        <div class="card-body" id="card-body-1">
-                            <h5 class="card-title">Bridging The Gap</h5>
-                            <p class="card-text">This application, developed by Team054 for the Georgia Institute of Technology's CSE 6242: Data and Visual Analytics course, is a modern adaptation of existing tools for understanding and visualizing bridge infrastructure data in the United States. There are over 617,000 bridges in the country, all of them critical to the transporation of goods, services, and individuals. This application allows anyone to view essential details about each of these critical pieces of infrastructure. Use the navigation bar or links below to explore our interactive dashboards, modeling information, and to learn various information about the project. </p>
-                            <div class="card-button-container">
-                                <a target="_blank" rel="noopener noreferrer" href="https://gitfront.io/r/EvanJ03/0c17dcce68bd8cc31d2813a35c11b785ce4d9cba/Bridging-the-Gap/"><button  class="card-button">View</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card" id="card-1" style="box-shadow: none;">
-                        <img class="card-img" src="images/Research_Images/Fake_News_Thumbnail.png" alt="fake-news-image">
-                        <div class="card-body" id="card-body-1">
-                            <h5 class="card-title">Fake News Detection</h5>
-                            <p class="card-text">In this project, I utilize existing disingenious review databases as well as satirical writings to train a neural network capable of identifying fake news articles with >90% out of sample accuracy.</p>
-                            <div class="card-button-container">
-                                <a target="_blank" rel="noopener noreferrer" href="#"><button  class="card-button">View</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
+            <div class="card-container" id="machine-learning-projects-container">
+
+            </div>
+            <div class='pagination-container' id="machine-learning-projects-pagination-container">
+
+            </div>
         </section>
         
-        <section class="replication-section">
+        <section class="card-section" id="Reinforcement-Learning-Projects-Section">
                 <h2 class="lead-heading">Reinforcement Learning Projects</h2>
                 <div class="lead-text-container">
                     <p class="lead-text">One of the best ways to better understand a paper, concept, or experiment is to do it from scratch.
@@ -167,73 +100,49 @@
                         as I try to avoid the many potholes laid by other authors.
                     </p>
                 </div>
-                <div class="card-container">
-                    <div class="card">
-                        <img class="card-img" src="images/Research_Images/Correlated_Q_Thumbnail.png">
-                        <div class="card-title-container">
-                            <p class="card-title">Correlated Q Learning</p>
-                        </div>
-                        <div class="card-text-container">
-                            <p class="card-text">Here is some descriptive text about the paper in question. My annotations are contained within
-                                as well as some addtional text here. And a little more text here.Here is some descriptive text about the paper 
-                                in question. My annotations are contained within
-                                as well as some addtional text here. And a little more text here.
-                            </p>
-                        </div>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer"  href='#' ><button class="card-button">View</button></a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img" src="images/Research_Images/TD_Learning_Thumbnail.png">
-                        <div class="card-title-container">
-                            <p class="card-title">TD Learning</p>
-                        </div>
-                        <div class="card-text-container">
-                            <p class="card-text">Although Sutton's paradigm of TD learning emereged from this paper, it may just be one of the 
-                                most error ridden works I have the pleasure of replicating. Through several chart revisions and errouneous initizations even 
-                                Sutton confesses he has no idea where his figures came from.
-                            </p>
-                        </div>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer"  href='#' ><button class="card-button">View</button></a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img" src="images/Research_Images/Atari_Thumbnail.png">
-                        <div class="card-title-container">
-                            <p class="card-title">DeepMind Atari</p>
-                        </div>
-                        <div class="card-text-container">
-                            <p class="card-text">Here is some descriptive text about the paper in question. My annotations are contained within
-                                as well as some addtional text here. And a little more text here.Here is some descriptive text about the paper 
-                                in question. My annotations are contained within
-                                as well as some addtional text here. And a little more text here.
-                            </p>
-                        </div>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer"  href='#' ><button class="card-button">View</button></a>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img class="card-img" src="images/Research_Images/Isomap_Thumbnail.png">
-                        <div class="card-title-container">
-                            <p class="card-title">IsoMap</p>
-                        </div>
-                        <div class="card-text-container">
-                            <p class="card-text">Here is some descriptive text about the paper in question. My annotations are contained within
-                                as well as some addtional text here. And a little more text here.Here is some descriptive text about the paper 
-                                in question. My annotations are contained within
-                                as well as some addtional text here. And a little more text here.
-                            </p>
-                        </div>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer"  href='#' ><button class="card-button">View</button></a>
-                        </div>
-                    </div>
+                <div class="card-container" id="reinforcement-learning-projects-container">
+
+                </div>
+                <div class='pagination-container' id="reinforcement-learning-projects-pagination-container">
+    
                 </div>
         </section>
-        <section class="annotation-section">
+
+        <section class="card-section" id="Web-Development-Projects-Section">
+            <h2 class="lead-heading">Web Development Projects</h2>
+            <div class="lead-text-container">
+                <p class="lead-text">
+                    As a software developer I'm always hard pressed to ever label a project complete as there are always room for improvements. However,
+                    at some point these improves reach a diminishing marginal return at which time I put them in this dormant category. Although it's possible
+                    I may revist some of them evenutally, but for the most part each of the projects in the collection below are some of my "finished" works.
+                </p>
+            </div>
+            <div class="card-container" id="web-development-projects-container">
+
+            </div>
+            <div class='pagination-container' id="web-development-projects-pagination-container">
+
+            </div>
+        </section>
+
+        <section class="card-section" id="Hardware-Projects-Section">
+            <h2 class="lead-heading">Hardware Projects</h2>
+            <div class="lead-text-container">
+                <p class="lead-text">
+                    As a software developer I'm always hard pressed to ever label a project complete as there are always room for improvements. However,
+                    at some point these improves reach a diminishing marginal return at which time I put them in this dormant category. Although it's possible
+                    I may revist some of them evenutally, but for the most part each of the projects in the collection below are some of my "finished" works.
+                </p>
+            </div>
+            <div class="card-container" id="hardware-projects-container">
+
+            </div>
+            <div class='pagination-container' id="hardware-projects-pagination-container">
+
+            </div>
+        </section>
+
+        <section class="card-section" id="Annotated-Papers-Section">
             <h2 class="lead-heading">Annotated Papers</h2>
             <div class="lead-text-container">
                 <p class="lead-text">Reading, digesting, and most importantly understanding the underlying intuition behind academic papers 
@@ -246,159 +155,13 @@
                     understanding these papers I consider it a successful venture. 
                 </p>
             </div>
-            <div class="card-container">
-                <div class="card">
-                    <img class="card-img" src="images/Research_Images/DQN_Thumbnail.png">
-                    <div class="card-title-container">
-                        <p class="card-title">Deep Q Networks</p>
-                    </div>
-                    <div class="card-text-container">
-                        <p class="card-text">Here is some descriptive text about the paper in question. My annotations are contained within
-                            as well as some addtional text here. And a little more text here.Here is some descriptive text about the paper 
-                            in question. My annotations are contained within
-                            as well as some addtional text here. And a little more text here.
-                        </p>
-                    </div>
-                    <div class="card-button-container">
-                        <a target="_blank" rel="noopener noreferrer"  href='#' ><button class="card-button">View</button></a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img" src="images/Research_Images/DDQN_Thumbnail.png">
-                    <div class="card-title-container">
-                        <p class="card-title">Double DQN</p>
-                    </div>
-                    <div class="card-text-container">
-                        <p class="card-text">Here is some descriptive text about the paper in question. My annotations are contained within
-                            as well as some addtional text here. And a little more text here.Here is some descriptive text about the paper 
-                            in question. My annotations are contained within
-                            as well as some addtional text here. And a little more text here.
-                        </p>
-                    </div>
-                    <div class="card-button-container">
-                        <a target="_blank" rel="noopener noreferrer"  href='#' ><button class="card-button">View</button></a>
-                    </div>
-                </div>
-                <div class="card">
-                    <img class="card-img" src="images/Research_Images/Dueling_DDQN_Thumbnail.png">
-                    <div class="card-title-container">
-                        <p class="card-title">Dueling DDQN</p>
-                    </div>
-                    <div class="card-text-container">
-                        <p class="card-text">Here is some descriptive text about the paper in question. My annotations are contained within
-                            as well as some addtional text here. And a little more text here.Here is some descriptive text about the paper 
-                            in question. My annotations are contained within
-                            as well as some addtional text here. And a little more text here.
-                        </p>
-                    </div>
-                    <div class="card-button-container">
-                        <a target="_blank" rel="noopener noreferrer"  href='#' ><button class="card-button">View</button></a>
-                    </div>
-                </div>
+            <div class="card-container" id="annotated-papers-container">
+
             </div>
+            <div class='pagination-container' id="annotated-papers-pagination-container">
 
-        </section>
-
-        <section class="card-section">
-            <h2 class="lead-heading">Web Development Projects</h2>
-            <div class="lead-text-container">
-                <p class="lead-text">
-                    As a software developer I'm always hard pressed to ever label a project complete as there are always room for improvements. However,
-                    at some point these improves reach a diminishing marginal return at which time I put them in this dormant category. Although it's possible
-                    I may revist some of them evenutally, but for the most part each of the projects in the collection below are some of my "finished" works.
-                </p>
-            </div>
-            <div class="card-container">
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/signature_paws_website.jpg" alt="SignaturePaws.org">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">SignaturePaws.org</h5>
-                        <p class="card-text">I created this website as a labor of love to both my mom and our family dog Tessie. This page serves as her kennel homepage, and showcases her accomplishments over the years in AKC confirmation shows. The website was built with wix (due a tight turnaround) and was a key tool in finding wonderful homes for all nine of our Bernese Mountain Dog puppies born New Year's Day 2021</p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="https://signaturepaws.org"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/bridging_the_gap_logo.png" alt="Bridging the Gap Logo">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">Bridging The Gap</h5>
-                        <p class="card-text">This application, developed by Team054 for the Georgia Institute of Technology's CSE 6242: Data and Visual Analytics course, is a modern adaptation of existing tools for understanding and visualizing bridge infrastructure data in the United States. There are over 617,000 bridges in the country, all of them critical to the transporation of goods, services, and individuals. This application allows anyone to view essential details about each of these critical pieces of infrastructure. Use the navigation bar or links below to explore our interactive dashboards, modeling information, and to learn various information about the project. </p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="https://gitfront.io/r/EvanJ03/0c17dcce68bd8cc31d2813a35c11b785ce4d9cba/Bridging-the-Gap/"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/price_palace_logo.png" alt="Django">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">Dashboards with Django & SQL</h5>
-                        <p class="card-text">This website/dashboard was developed as part of the capstone project for CS 6400 (Databases) at Georgia Tech. From scratch we were required to develop the full stack of technologies needed to meet the project specifications for a user friendly front end database entry and analytics dashboard for the ficitonal business "Price Palace". The project itself involves css, javascript, html, django, native python, php, & mysql. A big thanks go out to my two partners Tyrone & David.</p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="https://gitfront.io/r/EvanJ03/5b4c9fe1a01992bcde11eb70417d65d65db75e4a/Price-Palace/"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/EJ_AI_Logo.png" alt="evan-jones-ai-logo">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">EvanJones.AI</h5>
-                        <p class="card-text">You are here! This website was created from scratch without any existing frameworks. Everything is scratch scss, html, or javascript. Although web-development isn't my personal skillset, building and mainating this site has been a truly rewarding and educational experience. You can check out all the source code in github below.</p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="#"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/mandelbrot.jpg" alt="Mandlbrot Set">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">Fractal-JS</h5>
-                        <p class="card-text">This project actually became the inspiration for this website's homepage. In this project I use javascript, scss, and html to reproduce the famous Mandlebrot Set in browser. This variant allows indivduals to pause reset and even zoom in on points of interest in the graph.</p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="https://github.com/EvanJ3/Fractal-JS"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
-
-    <section class="card-section">
-        <h2 class="lead-heading">Hardware Projects</h2>
-        <div class="lead-text-container">
-            <p class="lead-text">
-                As a software developer I'm always hard pressed to ever label a project complete as there are always room for improvements. However,
-                at some point these improves reach a diminishing marginal return at which time I put them in this dormant category. Although it's possible
-                I may revist some of them evenutally, but for the most part each of the projects in the collection below are some of my "finished" works.
-            </p>
-        </div>
-        <div class="card-container">
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/magspoof.jpg" alt="MagSpoof">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">MagSpoof</h5>
-                        <p class="card-text">In this project, I replicate Samy Kamkar's latest hack the MagSpoof. This device utilizes an electromagnent driven by two discrt drivers to capture magnetic card data over air. Please use the tool responsibly.</p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="#"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card" id="card-1" style="box-shadow: none;">
-                    <img class="card-img" src="images/Project_Images/rig.jpg" alt="Personal Computer">
-                    <div class="card-body" id="card-body-1">
-                        <h5 class="card-title">Custom Built Computer</h5>
-                        <p class="card-text">One of my most exciting projects to date, building your own PC cerntainly lived up to the hype. Additionally, there is something to be said about understanding your hardware. Take a look at the build below.</p>
-                        <div class="card-button-container">
-                            <a target="_blank" rel="noopener noreferrer" href="#"><button  class="card-button">View</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </section>
 
 
         <footer class="footer-bottom">
@@ -428,5 +191,7 @@
 
     <script src="js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript"></script>
+    <script src="js/swiped-events.js"></script>
+    <script src="js/Projects.js"></script>
     <script src="js/nav.js"></script>
 </html>

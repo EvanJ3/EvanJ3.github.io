@@ -700,6 +700,8 @@ button, .button {
           flex-direction: row;
   margin-left: 1.5rem;
   margin-right: 1.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .card-tag {
@@ -887,23 +889,6 @@ button, .button {
           animation: card-fade-out 500ms ease-in-out forwards;
 }
 
-.bookshelf-section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 2.5rem;
-}
-
 .pagination-right {
   height: 22px;
   width: 22px;
@@ -950,6 +935,23 @@ button, .button {
 .pagination-text {
   color: black;
   text-align: center;
+}
+
+.bookshelf-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 2.5rem;
 }
 
 .bookshelf-header-image-section {
