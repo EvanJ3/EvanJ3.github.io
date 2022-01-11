@@ -122,6 +122,23 @@ function GenerateProjectCard(data){
     card_description_container.appendChild(card_description);
     card_body.appendChild(card_description_container);
 
+    var card_button_container = document.createElement('div');
+    card_button_container.className = 'card-button-container';
+
+    var card_button = document.createElement('button');
+    card_button.className = 'card-button'
+    card_button.innerHTML = 'View'
+    
+
+    var card_button_link = document.createElement('a');
+    card_button_link.href = data.link
+    card_button_link.target = "_blank"
+    card_button_link.rel = "noopener noreferrer"
+
+    card_button_link.appendChild(card_button)
+    card_button_container.appendChild(card_button_link)
+    card_body.appendChild(card_button_container)
+
     return card_body
 }
 
