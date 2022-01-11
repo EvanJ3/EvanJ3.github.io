@@ -471,9 +471,7 @@ async function RightProjectPagination(event){
 
 }
 
-
-
-ProjectData = d3.csv('./csv/Projects_csv/Project_data.csv',function(data){
+ProjectData = d3.csv('./csv/Projects_csv/Project_Data.csv',function(data){
 	return {
     category: data.Project_Category ,
 	name: data.Project_Name,
