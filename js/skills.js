@@ -4,7 +4,6 @@ function GenerateSkills(){
     var window_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     var MinHeight = 700;
     var MinWidth = 1000;
-    GenerateSkillTables()
     if (window_height < MinHeight|| window_width < MinWidth){
         GenerateSkillTables();
     }else{
@@ -15,8 +14,15 @@ function GenerateSkills(){
 
 
 function GenerateSkillBubbles(){
-    var SkillBubbleSection = document.getElementById('skill-visual-container');
+    var SkillTablePaginationContainer = document.getElementById('skill-table-pagination-container')
+    SkillTablePaginationContainer.innerHTML = ''
+    SkillTablePaginationContainer.className = ''
+    var SkillTableSection = document.getElementById('skill-table-container');
+    SkillTableSection.innerHTML = ''
+    SkillTableSection.className = ''
+    var SkillBubbleSection = document.getElementById('skill-bubble-container');
     SkillBubbleSection.innerHTML = ''
+    SkillBubbleSection.className = 'skill-container'
     var SkillBubleSVGHTML = `
     <div class="skill-bubble-container">
     <svg class="skills-svg"></svg>
@@ -167,18 +173,55 @@ function GenerateSkillBubbles(){
 
 }
 
+async function LeftTablePagination(){
 
+}
+
+async function RightTablePagination(){
+
+}
+
+function AppendTablePagination(){
+    var section = document.getElementById('skill-table-container')
+    section.addEventListener("swiped-right",RightTablePagination)
+    section.addEventListener("swiped-left", LeftTablePagination)
+    var pagination_container = document.getElementById('skill-table-pagination-container');
+    pagination_container.className = 'pagination-container'
+    var next_left_arrow = document.createElement('img')
+    next_left_arrow.className = 'pagination-left'
+    next_left_arrow.src= './icons/arrow-left-circle.svg'
+    next_left_arrow.addEventListener("click", LeftTablePagination);
+    
+
+    var next_right_arrow = document.createElement('img')
+    next_right_arrow.className = 'pagination-right'
+    next_right_arrow.src = './icons/arrow-right-circle.svg'
+    next_right_arrow.addEventListener("click", RightTablePagination);
+
+    var pagination_text = document.createElement('p')
+    pagination_text.className = 'pagination-text'
+    pagination_text.innerHTML = 'View More'
+
+    pagination_container.appendChild(next_left_arrow)
+    pagination_container.appendChild(pagination_text)
+    pagination_container.appendChild(next_right_arrow)
+
+
+}
 
 
 
 
 function GenerateSkillTables(){
-
-    var SkillTableSection = document.getElementById('skill-visual-container');
+    var SkillBubbleSection = document.getElementById('skill-bubble-container');
+    SkillBubbleSection.innerHTML = ''
+    SkillBubbleSection.className = ''
+    var SkillTableSection = document.getElementById('skill-table-container');
     SkillTableSection.innerHTML = ''
+    SkillTableSection.className = 'skill-container'
     var table_id_names = ['Programming','Distributed','MachineLearning','Other','Finance'];
     var table_inner_html_array = [];
-    
+    max_skill_tables = table_id_names.length;
     var ProgrammingTableHTML = `<div class="table-container">
                     <table id="skill" >
                         <tr>
@@ -366,20 +409,17 @@ function GenerateSkillTables(){
     table_inner_html_array.push(MachineLearningTableHTML)
     table_inner_html_array.push(FinanceSkillTableHTML)
     table_inner_html_array.push(OtherSkillTableHTML)
-
+    table_array = [];
+    current_table_index = 0;
     for (let i=0;i<table_id_names.length;i++){
         let table_i = document.createElement('div');
         table_i.className = 'table-container'
         table_i.id = table_id_names[i];
         table_i.innerHTML = table_inner_html_array[i];
-        SkillTableSection.appendChild(table_i);
-        
+        table_array.push(table_i);
     }
+    AppendTablePagination();
+
 }
 
 GenerateSkills()
-
-
-window.addEventListener('resize', function(event){
-    GenerateSkills()
-});
