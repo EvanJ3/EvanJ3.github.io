@@ -956,6 +956,7 @@ button, .button {
   color: black;
   border-collapse: collapse;
   width: 70%;
+  min-width: 300px;
 }
 
 #skill td, #skill th {
