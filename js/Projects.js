@@ -492,7 +492,6 @@ ProjectData = d3.csv('./csv/Projects_csv/Project_data.csv',function(data){
     project_page_data = GetCategoryPageData(project_paged_data_array,current_page_array);
     var project_cards = GenerateAllProjectCards(project_page_data);
     card_containers = GetSectionCardContainers(project_section_ids);
-    console.log(card_containers)
     AddMobileSectionEventListeners(card_containers)
     pagination_containers = GetSectionPaginationContainers(project_section_ids);
     AppendProjectCards(card_containers,project_cards);
