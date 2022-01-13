@@ -176,13 +176,13 @@ function GenerateSkillTables(){
 
     var SkillTableSection = document.getElementById('skill-visual-container');
     SkillTableSection.innerHTML = ''
-    var table_id_names = ['Programming','Distributed','MachineLearning','Other','Finance'];
+    var table_id_names = ['Programming','MachineLearning','Webdev','Other'];
     var table_inner_html_array = [];
     
     var ProgrammingTableHTML = `<div class="table-container">
                     <table id="skill" >
                         <tr>
-                        <th colspan="3">Programming & Development</th>
+                        <th colspan="3">Programming</th>
                         </tr>
                         <tr>
                         <td>Python
@@ -190,91 +190,41 @@ function GenerateSkillTables(){
                         </td>
                         <td>
                             Matlab
-                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
                         <td>Javascript
-                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
                         
                         </tr>
                         <tr>
                         <td>Mathematica
-                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
                         </td>
                         <td>R
                             <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
-                        <td>Django
-                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                        <td>C++
+                            <div class="skill-bar" style="width: calc(2 / 5* 75%);"></div>
                         </td>
-                        
                         </tr>
                         <tr>
-                        <td>C++
-                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
-                        </td>
-                        <td>MongoDB
-                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        <td>Php
+                            <div class="skill-bar" style="width: calc(2 / 5* 75%);"></div>
                         </td>
                         <td>SQL
-                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
-                        </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                PHP
-                                <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
-                            </td>
-                            <td>React
-                                <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
-                            </td>
-                            <td> D3
-                                <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>`
-
-    var DistributedComputingTableHTML = `<div class="table-container">
-                    <table id="skill">
-                        <tr>
-                        <th colspan="2">Distributed Computing</th>
-                        </tr>
-                        <tr>
-                        <td>Hadoop
-                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
-                        </td>
-                        <td>
-                            Spark
                             <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
                         </tr>
-                        <tr>
-                        <td>Pig
-                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
-                        </td>
-                        <td>Hive
-                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
-                            </td>
-                        </tr>
-
-                            
-                        </td>
-                        <td>AWS
-                            <div class="skill-bar" style="width: calc(2 / 5* 75%);"></div>
-                        </td>
-                        <td>Azure
-                            <div class="skill-bar" style="width: calc(2 / 5* 75%);"></div>
-                        </td>
-                        </tr>
+                        
+                        
                     </table>
                 </div>`
 
     var MachineLearningTableHTML = `<div class="table-container">
                     <table id="skill">
                         <tr>
-                        <th colspan="2">Machine Learning & AI</th>
-                        
+                        <th colspan="3">Machine Learning</th>
                         </tr>
                         <tr>
                         <td>Tensorflow
@@ -284,47 +234,88 @@ function GenerateSkillTables(){
                             Pytorch
                             <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
                         </td>
+                        <td>
+                            NumPy
+                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
+                        </td>
                         </tr>
                         <tr>
                         <td>Sklearn
+                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
+                        </td>
+                        <td>Keras
+                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
+                        </td>
+                        <td>SciPy
                             <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
-                        <td>Cuda
+                        </tr>
+                        <tr>
+                        <td>Hadoop
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        <td>
+                            Spark
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        <td>Pig
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        </tr>
+                        
+                        </td>
+                        <td>AWS
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        <td>Azure
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        <td>GC
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        
+                        </tr>
+                    </table>
+                </div>`
+
+    var WebDevTableHTML = `<div class="table-container">
+                    <table id="skill">
+                        <tr>
+                        <th colspan="2">Web Devlopment</th>
+                        
+                        </tr>
+                        <tr>
+                        <td>Django
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                        </td>
+                        <td>
+                            Flask
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>Bootstrap
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                        </td>
+                        <td>jQuery
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>Scss/Css
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                        </td>
+                        <td>HTML
+                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
+                        </td>
+                        </tr>
+                        
+                        <tr>
+                        <td>D3
                             <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
                         </tr>
                         
-                    </table>
-                </div>`
-
-    var FinanceSkillTableHTML = `<div class="table-container">
-                    <table id="skill">
-                        <tr>
-                        <th colspan="2">Finance</th>
-                        </tr>
-                        <tr>
-                        <td>Bloomberg Terminal
-                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
-                        </td>
-                        <td>
-                            Factset
-                            <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>LiveVol
-                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
-                        </td>
-                        <td>IBKR API
-                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-                            Eikon
-                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
-                        </td>
-                        </tr>
                     </table>
                 </div>`
 
@@ -334,37 +325,54 @@ function GenerateSkillTables(){
                         <th colspan="2">Other</th>
                         </tr>
                         <tr>
-                        <td>Arena
+                        <td>Jupyter
                             <div class="skill-bar" style="width: calc(5 / 5* 75%);"></div>
                         </td>
                         <td>
-                            Photoshop
+                            LaTeX
                             <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
                         </tr>
                         <tr>
-                        <td>XD
+                        <td>OpenRefine
                             <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
-                        <td>MS Office Suite
+                        <td>Docker
                             <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
                         </td>
                         </tr>
                         <tr>
-                        <td>Latex
+                        <td>Powershell
                             <div class="skill-bar" style="width: calc(2 / 5* 75%);"></div>
                         </td>
-                        <td>Github/Git
-                            <div class="skill-bar" style="width: calc(2 / 5* 75%);"></div>
+                        <td>Git
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
                         </td>
                         </tr>
+                        <tr>
+                        <td>Looker
+                            <div class="skill-bar" style="width: calc(2 / 5* 75%);"></div>
+                        </td>
+                        <td>Tableau
+                            <div class="skill-bar" style="width: calc(3 / 5* 75%);"></div>
+                        </td>
+                        </tr>
+                        <tr>
+                        <td>Matplotlib
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                        </td>
+                        <td>Tensorboard
+                            <div class="skill-bar" style="width: calc(4 / 5* 75%);"></div>
+                        </td>
+                        </tr>
+
+                        
                     </table>
                 </div>`
 
     table_inner_html_array.push(ProgrammingTableHTML)
-    table_inner_html_array.push(DistributedComputingTableHTML)
     table_inner_html_array.push(MachineLearningTableHTML)
-    table_inner_html_array.push(FinanceSkillTableHTML)
+    table_inner_html_array.push(WebDevTableHTML)
     table_inner_html_array.push(OtherSkillTableHTML)
 
     for (let i=0;i<table_id_names.length;i++){

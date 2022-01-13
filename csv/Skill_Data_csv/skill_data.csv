@@ -1,47 +1,45 @@
 Skill_ID,Skill_Name,Skill_Type,Skill_Level
-1,Python,Programming Language,5
-2,Javascript,Programming Language,3
-3,PHP,Programming Language,3
-4,R,Programming Language,4
-5,MATLAB,Programming Language,4
-6,Mathematica,Programming Language,4
-7,C++,Programming Language,2
-8,SQL,Databases,4
+0,SQL,Programming Languages,4
+1,Python,Programming Languages,5
+2,Javascript,Programming Languages,3
+3,PHP,Programming Languages,2
+4,R,Programming Languages,4
+5,MATLAB,Programming Languages,4
+6,Mathematica,Programming Languages,4
+7,C++,Programming Languages,2
+8,MySQL,Databases,4
 9,Mongo DB,Databases,3
-10,CLI,Other Languages,3
-11,Powershell,Other Languages,3
-12,LaTex,Other Languages,5
-13,Git,Other Languages,4
-14,PySpark,Distributed/Parallel Computing,3
+10,CLI,Other Languages/Utilities,3
+11,Powershell,Other Languages/Utilities,3
+12,LaTeX,Other Languages/Utilities,5
+13,Git,Other Languages/Utilities,4
+14,PySpark,Scalable Computing,3
 15,HTML,Web Development,4
 16,SCSS/CSS,Web Development,4
-17,Hive,Distributed/Parallel Computing,3
-18,Hadoop,Distributed/Parallel Computing,3
+17,Looker,Visualization,3
+18,Hadoop,Scalable Computing,3
 19,Tensorboard,Visualization,5
 20,D3,Visualization,4
-21,Lisp,Programming Language,2
+21,Google Cloud,Scalable Computing,3
 22,Django,Web Development,3
-23,React,Web Development,3
-24,Tensorflow,Machine Learning,5
+23,Matplotlib,Visualization,5
+24,Tensorflow & Keras,Machine Learning,5
 25,PyTorch,Machine Learning,5
 26,Sklearn,Machine Learning,5
 27,Tableau,Visualization,4
-28,Arena,Other Software,3
+28,Jupyter,Other Languages/Utilities,4
 29,Bootstrap,Web Development,4
-30,jquery,Web Development,3
-31,Azure,Machine Learning,3
-32,AWS,Machine Learning,4
-33,Apache,Web Development,3
-34,Docker,Distributed/Parallel Computing,3
-35,Kubernetes,Distributed/Parallel Computing,3
-36,Excel,Other Software,5
-37,Word,Other Software,5
-38,Powerpoint,Other Software,5
-39,XD,Other Software,5
-40,Pig,Distributed/Parallel Computing,3
-41,Photoshop,Other Software,3
-42,Bloomberg Terminal,Finance Software,5
-43,Eikon,Finance Software,4
-44,CBOE LiveVol,Finance Software,5
-45,IBKR API,Finance Software,4
-46,Factset,Finance Software,5
+30,jQuery,Web Development,3
+31,Azure,Scalable Computing,3
+32,AWS,Scalable Computing,3
+33,Docker,Other Languages/Utilities,3
+34,Pig,Scalable Computing,3
+35,Bloomberg Terminal,Finance Software,5
+36,IBKR API,Finance Software,4
+37,Factset,Finance Software,5
+38,NumPy/Scipy,Data Manipulation/Clearning,5
+39,Pandas,Data Manipulation/Clearning,5
+40,OpenRefine,Data Manipulation/Clearning,5
+41,Flask,Web Development,3
+42,PostgreSQL,Databases,3
+43,SQlite,Databases,4
