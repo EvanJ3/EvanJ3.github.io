@@ -254,7 +254,7 @@ CertificationData = d3.csv('./csv/Certification_csv/Certification_Data.csv',func
 	return {
 	title: data.Title,
     image_path: data.Image_Path,
-    ciriculum_path: data.Ciriculum_Path,
+    ciriculum_path: data.Curriculum_Path,
     certificate_path: data.Certificate_Path,
     description:data.Description
 	}
