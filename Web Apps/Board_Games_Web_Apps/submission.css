@@ -1,0 +1,31 @@
+.link-strong{
+    fill: none;
+    stroke: grey;
+    stroke-width: 3px;
+}
+
+.link-weak{
+    fill: none;
+    stroke: green;
+    stroke-width: 1px;
+    stroke-dasharray: 5;
+}
+
+circle {
+    stroke: black;
+    stroke-width: 1.5px;
+}
+
+text {
+    fill: #000;
+    font: 10px sans-serif;
+    pointer-events: none;
+    font-weight: bold;
+    transform: translate(6px,-6px);
+}
+
+.pinned-node{
+    stroke:yellow;
+    fill:red;
+}
+
