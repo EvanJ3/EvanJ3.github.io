@@ -1,0 +1,234 @@
+.main-container-center{
+    margin-top: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.modeling-title-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 3rem;
+}
+
+.map-container{
+    margin-top: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop-down{
+    margin-top: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.d3-tip{
+    line-height: 1;
+    font-weight: bold;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.644);
+    color: white;
+    font-size: 10px;
+    border-radius: 2px;
+    pointer-events: visiblePainted;
+}
+
+.nn-main-container{
+    margin-top: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.nn-row-container{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.nn-col-half{
+    padding: 20px;
+    width: 50%;
+}
+
+.rf-main-container{
+    margin-top: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.rf-row-container{
+    margin-top: 10px;
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.rf-col-half{
+    padding: 20px;
+    width: 50%;
+}
+
+.ada-col-half{
+    padding: 20px;
+    width: 50%;
+}
+
+.ada-main-container{
+    margin-top: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.ada-row-container{
+    margin-top: 10px;
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.ada-col-half{
+    padding: 20px;
+    width: 50%;
+}
+
+.logreg-main-container{
+    margin-top: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.logreg-row-container{
+    margin-top: 10px;
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.logreg-col-half{
+    padding: 20px;
+    width: 50%;
+}
+
+.bayes-main-container{
+    margin-top: 10px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.bayes-row-container{
+    margin-top: 10px;
+    padding-top: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.bayes-col-half{
+    padding: 20px;
+    width: 50%;
+}
+
+.modeling-lead-text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.modeling-lead-text-sub-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.modeling-text{
+    text-align: center;
+}
+
+.model-text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.model-text-sub-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 75%;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.model-text{
+    text-align: center;
+}

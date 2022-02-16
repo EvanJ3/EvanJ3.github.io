@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel= "stylesheet" type= "text/css" href= "css\style.css">
+    <link rel= "stylesheet" type= "text/css" href= "css\modeling.css">
+    <script type="text/javascript" src="js/d3.v5.min.js"></script>
+    <script type="text/javascript" src="js/d3-tip.min.js"></script>
+    <script type="text/javascript" src="js/d3-legend.min.js"></script>
+    <script type="text/javascript" src="js/topojson.v2.min.js"></script>
+    
+    <link rel="icon" type="image/png" href="Images/Favicon.ico" />
+  </head>
+    <title>Modeling</title>
+  <body style="background-color: rgb(236,236,236);">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+            <a class="navbar-brand" href="index.html">CSE6242 Team 54: Bridging the Gap</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveNav" aria-controls="responsiveNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="responsiveNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="modeling.html">Modeling<span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Visualizations
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="visualization1.html">Detailed Map View</a>
+                          <a class="dropdown-item" href="visualization2.html">Modeling Drill Down</a>
+                        </div>
+                    </li>
+                </ul><!-- /navbar-nav ml-auto -->
+            </div><!-- /navbarResponsive -->
+          </div>
+    </nav>
+
+    <main class="main-container-center">
+      <div>
+        <div class="modeling-title-container">
+          <h1 style="text-decoration: underline;">Bridge Condition Modeling</h2>
+        </div>
+        <div class="model-text-container">
+          <div class="model-text-sub-container">
+            <p class="model-text">
+              This page aims to capture and display all of the various modeling approaches we have used throughout 
+              this project. By utilizing National Bridge Inventory, NOAA, and FHA datasets for bridge information, 
+              weather data, and traffic volumes respectively, we were able to successfully create several models that 
+              accurately forecast the future condition of U.S. bridges. The modeling task itself was a temporal categorical
+              prediction problem whereby our models would take as input the current state of the bridge and output a forward
+              looking condition rating 'Poor', 'Fair', or 'Good'. In order to create the best models possible, we broke the
+              prediction task up into geographic regions which were more conducive to modeling given the various climate zones
+              in the entire United States. For each of these eight regions, we developed five separate types of models. 
+              By selecting a specific region from the dropdown box and map below you will be able to view all of our intermediate
+              and penultimate modeling results by region.
+            </p>
+
+          </div>
+        </div>
+        <div class="modeling-title-container">
+          <h2>Models by U.S. Geographic Region</h2>
+        </div>
+      </div>
+      <div class="map-container-center">
+        
+      </div>
+      <div class="drop-down"><div style="padding-right: 18px;font-size: 16pt;">Selected Modeling Region:</div></div>
+      <div>
+        
+      </div>
+      <div class="nn-main-container" id="NN-container">
+        <div class="nn-row-container">
+          <div class="nn-col-half" id="NN-CV">
+            <div class="nn-row-container">
+              <h3 style="padding-bottom: 10px;text-decoration: underline;">Neural Network Model Selection</h3>
+            </div>
+            <div class="model-text-container">
+              <div class="model-text-sub-container">
+                <p class="model-text"> Although artificial neural networks represent one of the most exciting
+                  and flexible modeling choices around today, these models also come at the cost of extensive
+                  computation, innumerable choices of hyper-parameters, and choices of architecture. In order
+                  to narrow the field of potential models, we took an approach of starting small with one layer and gradually expanding
+                  the depth and size of our potential networks to four where we reached the point of decreasing performance. Given
+                  the prediction task and our choice in preprocessing, we utilized only dense and dropout layers, 
+                  rectified linear units operators for intermediate layer activations, and SoftMax and sigmoidal activations
+                  for our output layers. All models were trained over fifteen epochs with a batch size of 512 and Ada-grad
+                  optimizer. Below are the intermediate results generated from our cross-validation of our ten potential
+                  neural network architectures.
+                </p>
+
+              </div>
+            </div>
+            <div class="nn-row-container" id="nn-cv-img-0">
+
+            </div>
+            <div class="nn-row-container" id="nn-cv-img-1">
+
+            </div>
+          </div>
+          
+        </div>
+        <div class="nn-row-container">
+        <div class="nn-col-half" id="NN-Prod">
+          <div class="nn-row-container">
+            <h3 style="padding-bottom: 10px;text-decoration: underline;">Neural Network Production Model</h3>
+          </div>
+          <div class="model-text-container">
+            <div class="model-text-sub-container">
+            <p class="model-text">After conducting the cross-validation process to determine the best neural network model
+              architecture and hyper-parameters for each given region, we used this information to re-fit the given model on 
+              a larger proportion of the total dataset to arrive at our final production neural network model. Despite the vast
+              difference in bridge data by region, it was noted that nearly all regions were best served by Model 8. This was our
+              deepest and largest model using SoftMax output activation. The final results of your selected region's model are 
+              shown below:
+            </p>
+            </div>
+          </div>
+          <div class="nn-row-container" id="nn-prod-img-0">
+
+          </div>
+          <div class="nn-row-container" id="nn-prod-img-1">
+
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="rf-main-container" id="RF-container">
+        <div class="rf-row-container">
+          <div class="rf-col-half" id="RF-CV">
+            <div class="rf-row-container">
+              <h3 style="padding-bottom: 10px;text-decoration: underline;">Random Forest Modeling</h3>
+            </div>
+            <div class="model-text-container">
+              <div class="model-text-sub-container">
+                <p class="model-text">From the very beginnings of our modeling experimentation, ensemble methods such
+                  as random forests and Adaboost seemed (and ultimately proved to be) some of the best models for this specific
+                  modeling task. In constructing our production random forest model, we tested a variety of values 
+                  for two key hyper-parameters: maximum tree depth and number of estimators. Both of these hyper-parameters 
+                  directly determine the size and number of weak learners the random forest is permitted to generate. By increasing
+                  either of these parameters we increase the model’s ability to fit a given dataset. However, at some point these additional
+                  benefits will be outweighed by overfitting to the training set, and computational cost. Nearly all of the regional
+                  models fit with random forest display this exact same behavior. After testing out the best value for both parameters,
+                  we fit the production random forest model according to a larger proportion of the dataset with the optimal hyper-parameters
+                  previously discovered used as its' values. The output results for both steps are shown below for your selected region:
+                </p>
+
+              </div>
+            </div>
+            <div class="rf-row-container" id="rf-img-0">
+
+            </div>
+            <div class="rf-row-container" id="rf-img-1">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ada-main-container" id="ada-container">
+        <div class="ada-row-container">
+          <div class="ada-col-half" id="ada-CV">
+            <div class="ada-row-container">
+              <h3 style="padding-bottom: 10px;text-decoration: underline;">Ada-boost Modeling</h3>
+            </div>
+            <div class="model-text-container">
+              <div class="model-text-sub-container">
+                <p class="model-text">Similar to random forest models, Adaboost is an ensemble learner that showed particular
+                  promise in our exploratory modeling. When training various Adaboost models to determine the optimal choice of 
+                  hyper-parameters, we decided to focus on the values of maximum number of estimators and learning rate. The maximum
+                  number of estimators directly impacts the model's ability to model a dataset, too large leads to overfitting, while
+                  too small a value won't give the model the size it needs to properly segment the dataset. The models learning rate
+                  determines how quickly the model learns/adjusts during the training phase. A lower learning rate will increase training
+                  time significantly but could lead to a more stable outcome. Whereas a high learning rate will reduce training time
+                  , but could come at the cost of ineffective learning updates. A variety of values were tested for both hyper-parameters, 
+                  the best of which were then used to fit the production Adaboost model on a slightly larger training set. The output results for both steps are shown below for your selected region:
+                </p>
+              </div>
+            </div>
+            <div class="ada-row-container" id="ada-img-0">
+
+            </div>
+            <div class="ada-row-container" id="ada-img-1">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bayes-main-container" id="bayes-container">
+        <div class="bayes-row-container">
+          <div class="bayes-col-half" id="bayes-CV">
+            <div class="bayes-row-container">
+              <h3 style="padding-bottom: 10px;text-decoration: underline;">Naive Bayes Modeling</h3>
+            </div>
+            <div class="model-text-container">
+              <div class="model-text-sub-container">
+                <p class="model-text">Given the simplicity of Naive Bayes it wasn't expected that this modeling approach
+                  would yield promising results. However, in any modeling task it is often best to start with the basics 
+                  and only increase complexity if need be. Despite our best efforts at hyperparameter optimization Naive Bayes
+                  lagged in nearly all regional modeling efforts. Various values of variance smoothing were chosen and tested to 
+                  optimize our model's hyper-parameters, but in each instance the models still fell short. The output results for both steps are shown below for your selected region:
+                </p>
+              </div>
+            </div>
+            <div class="bayes-row-container" id="bayes-img-0">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="logreg-main-container" id="logreg-container">
+        <div class="logreg-row-container">
+          <div class="logreg-col-half" id="logreg-CV">
+            <div class="logreg-row-container">
+              <h3 style="padding-bottom: 10px;text-decoration: underline;">Logistic Regression Modeling</h3>
+            </div>
+            <div class="model-text-container">
+              <div class="model-text-sub-container">
+                <p class="model-text">Our fifth and final modeling approach for this project was logistic regression. 
+                  Similar to Naive Bayes in terms of simplicity, the logistic regression model still proved to be quite
+                  more robust than initially expected. Although the results of these models' do not achieve the high marks of 
+                  the ensemble and neural network methods, they still achieve fairly strong performance especially given the high
+                  dimensionality of the dataset. During the tuning process, we tested various values of regularization penalty commonly
+                  denoted as "C". After training several models with various values of this hyper-parameter we then identified the optimal 
+                  value and subsequently trained the production logistic regression model using this parameter and an augmented training set. 
+                  The output results for both steps are shown below for your selected region:
+                </p>
+              </div>
+            </div>
+            <div class="logreg-row-container" id="logreg-img-0">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="text-center text-white">
+
+      <div class="text-center text-white" style="background-color: #343a40;">
+        <a class="btn btn-link btn-floating btn-lg text-dark" target="_blank" href="https://github.gatech.edu/jshalkhauser3/CSE6242_Team054_Project" role="button"data-mdb-ripple-color="dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-github" viewBox="0 0 16 16" style="vertical-align: baseline;">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+        <a class="text-white" href="index.html">Bridging the Gap</a> : Team 54
+      </div>
+
+    </footer>
+    <script type="text/javascript" src="js/generate_regional_map.js"></script>
+    <script type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  </head>
+    <link rel= "stylesheet" type= "text/css" href= "css/style.css">
+    <link rel="icon" type="image/png" href="Images\Favicon.ico"/>
+    <title>CSE6242 Group054 - Bridging the Gap</title>
+  <body>
+
+  
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">CSE6242 Team 54: Bridging the Gap</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveNav" aria-controls="responsiveNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="responsiveNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home
+                            </a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="modeling.html">Modeling</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Visualizations<span class="sr-only">(current)</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="visualization1.html">Detailed Map View</a>
+                          <a class="dropdown-item active" href="visualization2.html">Modeling Drill Down<span class="sr-only">(current)</span></a>
+                        </div>
+                    </li>
+                </ul><!-- /navbar-nav ml-auto -->
+            </div><!-- /navbarResponsive -->
+        </div><!-- /container -->
+    </nav>
+
+    <main role="main" class="container">
+      <div class="container">
+        <div class="starter-template" >
+          <div id="main-box" style="margin-top:2%">
+            <div id="center-content" ><!-- style="width:95%; margin:0 auto;"> -->
+              <div class="row" style="margin-left:0.5%; padding-top:1%;">
+                <div class="col-7" style="font-weight:bold;font-size:18pt;">
+                  U.S. Bridge Infrastructure Modeling Drill Down
+                </div>
+                <div class="col-2" style="font-weight:normal;font-size:12pt;padding-top:5px;"></div>
+                <div class="col-3" style="font-weight:normal;font-size:12pt;padding-top:5px;"></div>
+              </div><!-- /row -->
+              <div class="row" style="margin-left:0.5%;">
+                <div class="col-11">
+                  <p>This dashboad is used to drill-down into the predictive modeling features of our application. Using the filters on the right-hand side, 
+                    you can see how predicted bridge condition values (Poor, Fair, Good) by region change based on the model type and year predicted. We have plotted 
+                    features such as "Bridge Structure Type," "Bridge Class," and "Precipitation" to visually demonstrate how these values shift based on our model's predictions.
+                  </p> 
+                </div>
+              </div><!-- /row -->
+              
+              <div id="vis-holder" style="margin-left:1.5%">
+                <div class='tableauPlaceholder' id='viz1638579452410' style='position: relative'><noscript><a href='#'><img alt='Dashboard 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;dv&#47;dvaprojectdashboard2&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='dvaprojectdashboard2&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;dv&#47;dvaprojectdashboard2&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1638579452410');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1677px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main><!-- /.container -->
+    <br /><br />
+    <footer class="text-center text-white fixed-bottom">
+
+      <div class="text-center text-white" style="background-color: #343a40;">
+        <a class="btn btn-link btn-floating btn-lg text-dark" target="_blank" href="https://github.gatech.edu/jshalkhauser3/CSE6242_Team054_Project" role="button"data-mdb-ripple-color="dark">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-github" viewBox="0 0 16 16" style="vertical-align: baseline;">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+        <a class="text-white" href="index.html">Bridging the Gap</a> : Team 54
+      </div>
+
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
