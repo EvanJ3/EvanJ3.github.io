@@ -63,6 +63,29 @@ WorkTimelineSection.innerHTML = `
         <h2 style="text-decoration: underline;">Work Experience</h2>
         <div class="timeline-entry"> 
             <div class="timeline-lead">
+                <h3>Data Scientist</h3>
+                <p>June 2022 - Present</p>
+            </div>
+            <div class="timeline-school-icon">
+                <a target="_blank" rel="noopener noreferrer" href='https://www.flexshopper.com/' ><img src="images/Resume_Images/flexshopper.jpg" style="width: 50px;height: auto;"></a>
+            </div>
+            <div class="timeline-content">
+                <h3>United States Olympic Committee <span class="location-text"> Atlanta,GA</span></h3>
+                <p>Develop bespoke likely response models for direct mail and social media marketing campaigns
+                    <br>
+                    <br>
+                    Developed Credit quality and approval models for loan and lease customers
+                    <br>
+                    <br>
+                    
+                    <br>
+                    <br>
+                </p>
+            </div>
+        </div>
+        <div class="timeline-seperator"></div>
+        <div class="timeline-entry"> 
+            <div class="timeline-lead">
                 <h3>Graduate Practicum Student</h3>
                 <p>January 2022 - May 2022</p>
             </div>
