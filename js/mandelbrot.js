@@ -131,7 +131,7 @@ class Mandelbrot {
             <p class="name-title">Evan Jones</p>
         </div>
         <div class="description-container">
-            <p class="description-content">Machine Learning Engineer | Computer Scientist | Data Analyst</p>
+            <p class="description-content">Data Scientist | Machine Learning Engineer </p>
         </div>`
         }
     };
