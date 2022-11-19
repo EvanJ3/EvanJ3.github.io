@@ -70,14 +70,14 @@ WorkTimelineSection.innerHTML = `
                 <a target="_blank" rel="noopener noreferrer" href='https://www.flexshopper.com/' ><img src="images/Resume_Images/flexshopper.jpg" style="width: 50px;height: auto;"></a>
             </div>
             <div class="timeline-content">
-                <h3>United States Olympic Committee <span class="location-text"> Atlanta,GA</span></h3>
-                <p>Develop bespoke likely response models for direct mail and social media marketing campaigns
+                <h3>FlexShopper<span class="location-text"> Boca Raton, FL</span></h3>
+                <p> Led developement team of the company's next generation of credit approval model. 
                     <br>
                     <br>
-                    Developed Credit quality and approval models for loan and lease customers
+                    Researched and developed proprietary undersampling and oversampling methods utilizing maximal margin classification properties as a driver of class seperation.
                     <br>
                     <br>
-                    
+                    Responsible for the modeling and selection of direct mail and social media campagins generating in excess of $20MM in incremental revenue.
                     <br>
                     <br>
                 </p>
