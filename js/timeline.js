@@ -110,10 +110,11 @@ WorkTimelineSection.innerHTML = `
                 </p>
             </div>
         </div>
+        
         <div class="timeline-seperator"></div>
         <div class="timeline-entry"> 
             <div class="timeline-lead">
-                <h3>Lead Graduate TA</h3>
+                <h3>Lead Graduate Associate Instructor</h3>
                 <p>October 2021 - Present</p>
             </div>
             <div class="timeline-school-icon">
