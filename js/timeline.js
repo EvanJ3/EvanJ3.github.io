@@ -67,7 +67,7 @@ WorkTimelineSection.innerHTML = `
                 <p>June 2022 - Present</p>
             </div>
             <div class="timeline-school-icon">
-                <a target="_blank" rel="noopener noreferrer" href='https://www.flexshopper.com/' ><img src="images/Resume_Images/flexshopper.jpg" style="width: 50px;height: auto;"></a>
+                <a target="_blank" rel="noopener noreferrer" href='https://www.flexshopper.com/' ><img src="images/Resume_Images/Flexshopper.jpg" style="width: 50px;height: auto;"></a>
             </div>
             <div class="timeline-content">
                 <h3>FlexShopper<span class="location-text"> Boca Raton, FL</span></h3>
@@ -94,9 +94,19 @@ WorkTimelineSection.innerHTML = `
             </div>
             <div class="timeline-content">
                 <h3>United States Olympic Committee <span class="location-text"> Colorado Springs,CO</span></h3>
-                <p>Work with a small team on an internal modeling and analysis project.
+                <p>Worked on a modeling and analysis project to improve committee understanding of various drivers of medal achievement in Olympic level athletes/competition
                     <br>
                     <br>
+                    Utilized kernel density estimation modeling to develop a novel analysis of the impact age and regulation changes have on alpine skiing disciplines
+                    <br>
+                    <br>
+                    Successfully implemented a variety of regression, tree-based, and neural network models for the task of medal score prediction given a country’s Olympic pipeline
+                    <br>
+                    <br>
+                    Developed a web application based on Python and Plotly-Dash to serve as an interactive dashboard for continued use and analysis of alpine skiing disciplines
+                    <br>
+                    <br>
+                    Created a data scraping, aggregation, and reconciliation tool that automates the process of identifying, retrieving, and matching previously unavailable or inconsistent athlete information from the web
                 </p>
             </div>
         </div>
