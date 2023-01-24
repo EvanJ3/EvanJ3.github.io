@@ -64,14 +64,27 @@ WorkTimelineSection.innerHTML = `
         <div class="timeline-entry"> 
             <div class="timeline-lead">
                 <h3>Data Scientist</h3>
-                <p>June 2022 - Present</p>
+                <p>Febuary 2023 - Present</p>
+            </div>
+            <div class="timeline-school-icon">
+                <a target="_blank" rel="noopener noreferrer" href='https://www.mbusa.com/' ><img src="images/Resume_Images/mercedes_benz_logo.png" style="width: 50px;height: auto;"></a>
+            </div>
+            <div class="timeline-content">
+                <h3>FlexShopper<span class="location-text"> Atlanta, GA</span></h3>
+            </div>
+        </div>
+        <div class="timeline-seperator"></div>
+        <div class="timeline-entry"> 
+            <div class="timeline-lead">
+                <h3>Data Scientist</h3>
+                <p>June 2022 - Febuary 2023</p>
             </div>
             <div class="timeline-school-icon">
                 <a target="_blank" rel="noopener noreferrer" href='https://www.flexshopper.com/' ><img src="images/Resume_Images/Flexshopper.jpg" style="width: 50px;height: auto;"></a>
             </div>
             <div class="timeline-content">
                 <h3>FlexShopper<span class="location-text"> Boca Raton, FL</span></h3>
-                <p> Led developement team of the company's next generation of credit approval model. 
+                <p> Led developement team of the company's next generation of lease credit decision model. 
                     <br>
                     <br>
                     Researched and developed proprietary undersampling and oversampling methods utilizing maximal margin classification properties as a driver of class seperation.
