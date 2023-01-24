@@ -99,7 +99,7 @@ WorkTimelineSection.innerHTML = `
         <div class="timeline-seperator"></div>
         <div class="timeline-entry"> 
             <div class="timeline-lead">
-                <h3>Graduate Practicum Student</h3>
+                <h3>Machine Learning Fellowship</h3>
                 <p>January 2022 - May 2022</p>
             </div>
             <div class="timeline-school-icon">
