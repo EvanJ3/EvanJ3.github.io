@@ -70,7 +70,7 @@ WorkTimelineSection.innerHTML = `
                 <a target="_blank" rel="noopener noreferrer" href='https://www.mbusa.com/' ><img src="images/Resume_Images/mercedes_benz_logo.png" style="width: 50px;height: auto;"></a>
             </div>
             <div class="timeline-content">
-                <h3>FlexShopper<span class="location-text"> Atlanta, GA</span></h3>
+                <h3>Merceedes-Benz<span class="location-text"> Atlanta, GA</span></h3>
             </div>
         </div>
         <div class="timeline-seperator"></div>
