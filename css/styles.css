@@ -296,7 +296,8 @@ footer.site p{font-family:var(--mono);font-size:.76rem;color:var(--faint);letter
 .wall-head h2{font-size:clamp(1.5rem,3vw,2rem);margin-top:.8rem;letter-spacing:-.01em}
 .wall-head p{color:var(--muted);margin:.9rem 0 0}
 .wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:.7rem}
-.wall img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px;border:1px solid var(--line);box-shadow:0 8px 20px -12px rgba(0,0,0,.85);transition:transform .25s ease,box-shadow .25s ease}
+.wall img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:2px;border:1px solid var(--line);box-shadow:0 8px 20px -12px rgba(0,0,0,.85);opacity:1;transition:transform .25s ease,box-shadow .25s ease,opacity .6s ease}
+.wall img.swapping{opacity:0}
 .wall img:hover{transform:translateY(-4px);box-shadow:0 14px 28px -12px rgba(0,0,0,.9);border-color:var(--line-strong)}
 .wall-note{font-family:var(--mono);font-size:.8rem;color:var(--faint);margin-top:1.5rem;text-align:center}
 .wall-note b{color:var(--accent);font-weight:500}
