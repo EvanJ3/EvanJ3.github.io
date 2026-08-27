@@ -45,13 +45,29 @@
     host.innerHTML =
       '<div class="nav-inner">' +
         '<a class="brand" href="index.html">Evan<span>.</span>Jones</a>' +
-        '<nav class="nav-links" aria-label="Primary">' +
+        '<button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">' +
+          "<span></span><span></span><span></span>" +
+        "</button>" +
+        '<nav class="nav-links" id="nav-links" aria-label="Primary">' +
           LINKS.map(function (l) {
             var active = l.href === here ? ' aria-current="page"' : "";
             return '<a href="' + l.href + '"' + active + ">" + l.label + "</a>";
           }).join("") +
         "</nav>" +
       "</div>";
+
+    var toggle = host.querySelector(".nav-toggle");
+    var links = host.querySelector(".nav-links");
+    toggle.addEventListener("click", function () {
+      var open = host.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    links.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") {
+        host.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      }
+    });
   }
 
   function renderFooter() {
