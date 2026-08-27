@@ -1,134 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="jQueryAssets/jquery.ui.core.min.css" rel="stylesheet" type="text/css">
-		<link href="jQueryAssets/jquery.ui.theme.min.css" rel="stylesheet" type="text/css">
-		<link href="jQueryAssets/jquery.ui.slider.min.css" rel="stylesheet" type="text/css">
-		<link rel="shortcut icon" href="icons/favicon.ico"/>
-        <link href="css/about.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<script src="jQueryAssets/jquery-1.11.1.min.js"></script>
-		<script src="jQueryAssets/jquery.ui-1.10.4.slider.min.js"></script>
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js'></script>
-        <title>About</title>
-    </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="icons/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <title>About Evan Jones</title>
+</head>
+<body>
+  <header id="site-nav"></header>
 
-    <body>
-        <header class="header">
-            <div class="overlay has-fade"></div>
-            <nav class="container nav-flex">
-                <div class="header__logo">
-                    <a href="index.html" >Evan Jones</a>
-                </div>
-                <a href="#" id="nav-hamburger" class="header__toggle hide-for-desktop">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </a>
-
-                <div class="header__links hide-for-mobile">
-                    <a href="portfolio.html">Portfolio</a>
-                    <a href="about.html">About</a>
-                    <a href="bookshelf.html">Bookshelf</a>
-                    <a href="teaching.html">Teaching</a>
-                </div>
-                
-            </nav>
-            <div class="header__menu hide-for-desktop has-fade">
-                <a href="portfolio.html">Portfolio</a>
-                <a href="about.html">About</a>
-                <a href="bookshelf.html">Bookshelf</a>
-                <a href="teaching.html">Teaching</a>
+  <main>
+    <!-- INTRO -->
+    <section class="about-intro">
+      <div class="wrap">
+        <div class="intro-grid">
+          <div class="rise">
+            <span class="eyebrow">About</span>
+            <h1>Evan&nbsp;Jones</h1>
+            <p class="role"><b>Lead Data Scientist</b> &nbsp;·&nbsp; <b>Machine Learning Engineer</b></p>
+            <div class="bio">
+              <p>Most people call me EJ. I'm a Lead Data Scientist at <strong>FanDuel</strong>, where I build the foundational personalization and recommendation models behind the Sportsbook, Picks, and Predicts apps.</p>
+              <p>I came to machine learning the long way around — through finance. A BBA in Finance from the University of Georgia, then an MS in <strong>Computational Data Analytics</strong> at Georgia Tech. Before FanDuel I spent two and a half years as a <strong>Senior ML Engineer at Mercedes-Benz</strong>, architecting production systems like <em>Hyperlocal</em> and the patent-pending <em>ECE</em>.</p>
+              <p>That finance grounding still shapes how I work: I care as much about <strong>why</strong> a model moves a number as whether it fits. Outside of it, I tinker — fractals, recommender systems, and whatever else earns a spot on the <a href="portfolio.html">portfolio</a>.</p>
             </div>
-        </header>
-        <section class="about-intro">
-
-            <div class="center-fluid-container" id="about-intro-fluid" style="margin-top: 35px">
-                <div class="content-center-container">
-                    <h1 style="text-decoration: underline;">About Me</h1>
-                
-                <div class="about-content">
-                    <img class="profile-image" src="images/Resume_Images/Linkedin_Profile_Photo.jpg">
-                    <p class="about-text">Hi, my name is Evan Jones, but everyone calls me EJ. I am a machine learning engineer and data scientist. I currently work as a Data Scientist at Mercedes-Benz in Atlanta.
-                        Additionally, I serve as a lead graduate instructional associate instructor at Georgia Tech serving under Dr. Frederic Bien. 
-                        Our course, Analytics in Business, is a core course in Georgia Tech’s MS of Analytics program and covers a wide variety of cross cutting topics from logistics, marketing, finance, and each of their connections to data analytics. 
-                        I graduated from Georgia Tech’s MS in Analytics with a concentration in computational statistics in the fall of 2021. 
-                        Prior to earning my MS, I obtained my BBA in Finance with a specialization in asset and security valuation from the University of Georgia in the Spring of 2019.
-                    </p>
-                    <div class="hire-me-button-container">
-                        <a target="_blank" rel="noopener noreferrer" href="mailto:ej@evanjones.ai" ><button class="hire-me-button">Contact Me</button></a>
-                    </div>
-                </div>
-                
+            <div class="cta-row">
+              <a class="btn-primary" href="mailto:ej@evanjones.ai">Get in touch →</a>
+              <div class="about-socials" aria-label="Social links">
+                <a href="mailto:ej@evanjones.ai" aria-label="Email"><svg viewBox="0 0 16 16"><path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/></svg></a>
+                <a href="https://linkedin.com/in/evan-jones-b57a7512b" aria-label="LinkedIn"><svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg></a>
+                <a href="https://github.com/EvanJ3/" aria-label="GitHub"><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              </div>
             </div>
-        </section>
+          </div>
+          <figure class="portrait rise" style="margin:0;animation-delay:.15s">
+            <img src="images/Resume_Images/profile_photo.jpg" alt="Evan Jones" width="290" height="290">
+          </figure>
+        </div>
+      </div>
+    </section>
 
-        
-        <section class="timeline-section" id="education-timeline">
-        </section>
+    <div class="divider"></div>
 
-        <section class="timeline-section" id="work-timeline">
-        </section>
-
-        <section class="skills-section" >
-            <div class="skill-lead">
-                <h1 style="color: black; text-decoration: underline; text-align: center;">Skills</h2>
+    <!-- EXPERIENCE -->
+    <section>
+      <div class="wrap">
+        <div class="sec-head rise"><span class="eyebrow">Trajectory</span><h2>Experience</h2></div>
+        <div class="timeline">
+          <div class="tl-item rise">
+            <div class="when">Aug 2025<br>— Present</div>
+            <div class="body">
+              <div class="logo logo-badge fill" aria-label="FanDuel"><img src="images/Resume_Images/fanduel_logo.svg" alt="FanDuel"></div>
+              <h3>Lead Data Scientist <span class="pill">Current</span></h3>
+              <p class="org">FanDuel <span class="loc">/ Atlanta, GA</span></p>
+              <ul>
+                <li>Architect of a foundational personalization model powering the Sportsbook application, from an initial MLB player-props MVP through national rollout.</li>
+                <li>Built a two-tower retrieval model with a hierarchical ranking layer for real-time personalization across FanDuel Picks.</li>
+                <li>Fully personalized real-time search — trending, autocomplete, and results — across Sportsbook, Predicts &amp; Picks with foundational embedding models.</li>
+                <li>Designed incentive models that concentrate promotional spend on the customers most likely to benefit from it.</li>
+              </ul>
             </div>
-            <div class="skill-container" id="skill-visual-container">
+          </div>
+          <div class="tl-item rise">
+            <div class="when">Feb 2023<br>— Aug 2025</div>
+            <div class="body">
+              <div class="logo logo-badge" aria-label="Mercedes-Benz"><img src="images/Resume_Images/mercedes_benz_logo.png" alt="Mercedes-Benz"></div>
+              <h3>Senior Machine Learning Engineer</h3>
+              <p class="org">Mercedes-Benz <span class="loc">/ Atlanta, GA</span></p>
+              <ul>
+                <li>Architected <em>Hyperlocal</em>, predicting sales opportunity and optimal production allocation by zip code — piloted regionally, then scaled nationally as the "road to 400k" initiative.</li>
+                <li>Developed <em>ECE</em>, preventing lemon-law buybacks and critical repairs through telematics data <span style="color:var(--faint)">(patent pending)</span>.</li>
+                <li>Built <em>NBx</em>, an LLM-powered recommendation engine generating tailored email copy for off-lease, churn, and retention campaigns.</li>
+              </ul>
             </div>
-        </section>
-
-        <section class="card-section" id="certification-section">
-            <div class="skill-lead">
-                <h1 style="color: black; text-decoration: underline; text-align: center;">Certifications</h2>
+          </div>
+          <div class="tl-item rise">
+            <div class="when">May 2022<br>— Feb 2023</div>
+            <div class="body">
+              <div class="logo logo-badge fill" aria-label="FlexShopper"><img src="images/Resume_Images/Flexshopper.jpg" alt="FlexShopper"></div>
+              <h3>Data Scientist</h3>
+              <p class="org">FlexShopper <span class="loc">/ Atlanta, GA</span></p>
+              <ul>
+                <li>Developed a multi-objective credit-decision model that improved response rates while cutting application cost and default risk.</li>
+              </ul>
             </div>
-            <div class="card-container" id='certification-card-container'>
+          </div>
+          <div class="tl-item rise">
+            <div class="when">May 2020<br>— Present</div>
+            <div class="body">
+              <div class="logo logo-badge" aria-label="Georgia Tech"><img src="images/Resume_Images/gt_small.png" alt="Georgia Tech"></div>
+              <h3>Lead Graduate Associate</h3>
+              <p class="org">Georgia Institute of Technology <span class="loc">/ Atlanta, GA</span></p>
+              <ul>
+                <li>Lead TA for MGT&nbsp;6203: Data Analytics in Business, coordinating ~20 graduate TAs across content, grading, and student support.</li>
+              </ul>
             </div>
-            <div class='pagination-container' id="certification-pagination-container">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- EDUCATION -->
+    <section>
+      <div class="wrap">
+        <div class="sec-head rise"><span class="eyebrow">Foundations</span><h2>Education</h2></div>
+        <div class="edu-grid">
+          <div class="edu-card rise">
+            <div class="edu-head">
+              <div class="logo" aria-label="Georgia Tech"><img src="images/Resume_Images/gt_small.png" alt="Georgia Tech"></div>
+              <div><h3>M.S. Computational Data Analytics</h3><p class="school">Georgia Institute of Technology</p></div>
             </div>
-        </section>
-        
-        
+            <dl><dt>Focus</dt><dd>Computational Statistics</dd><dt>GPA</dt><dd>4.00</dd><dt>Conferred</dt><dd>May 2022</dd></dl>
+          </div>
+          <div class="edu-card rise" style="animation-delay:.1s">
+            <div class="edu-head">
+              <div class="logo" aria-label="University of Georgia"><img src="images/Resume_Images/uga_logo.png" alt="University of Georgia"></div>
+              <div><h3>B.B.A. Finance</h3><p class="school">University of Georgia</p></div>
+            </div>
+            <dl><dt>Focus</dt><dd>Securities Valuation</dd><dt>GPA</dt><dd>3.76</dd><dt>Conferred</dt><dd>May 2019</dd></dl>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        
+    <div class="divider"></div>
 
-        
+    <!-- SKILLS -->
+    <section>
+      <div class="wrap">
+        <div class="sec-head rise"><span class="eyebrow">Toolkit</span><h2>Skills</h2></div>
+        <div class="skill-grid">
+          <div class="skill-group rise">
+            <h3>Languages</h3>
+            <div class="tags"><span>Python</span><span>Go</span><span>Lisp</span><span>R</span><span>JavaScript</span><span>C++</span><span>MATLAB</span><span>Terraform</span></div>
+          </div>
+          <div class="skill-group rise" style="animation-delay:.08s">
+            <h3>Data Science</h3>
+            <div class="tags"><span>Recommendation Systems</span><span>Foundational Embeddings</span><span>Deep Learning</span><span>Imbalanced Learning</span><span>Time-Series Forecasting</span><span>Survival Analysis</span><span>Anomaly Detection</span><span>Classification</span></div>
+          </div>
+          <div class="skill-group rise" style="animation-delay:.16s">
+            <h3>ML Packages</h3>
+            <div class="tags"><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>NumPy</span><span>Pandas</span><span>XGBoost</span><span>CatBoost</span><span>Ray</span><span>MLflow</span><span>LangChain</span><span>Hugging Face</span></div>
+          </div>
+          <div class="skill-group rise" style="animation-delay:.24s">
+            <h3>Platform &amp; Engineering</h3>
+            <div class="tags"><span>AWS</span><span>Azure</span><span>SageMaker</span><span>Kubernetes</span><span>Airflow</span><span>Docker</span><span>Buildkite</span><span>PySpark</span><span>Kafka</span><span>SQL</span><span>MongoDB</span><span>MLOps</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="footer-section">
-            <footer class="footer-bottom">
-                <div class="footer-container" style="color: black;">
-                    <a class="footer-link-black" href="mailto:ej@evanjones.ai">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-                        </svg>
-                    </a>
-                    <a class="footer-link-black" href="https://linkedin.com/in/evan-jones-b57a7512b">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"viewBox="0 0 16 16">
-                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                        </svg>
-                    </a>
-                    <a class="footer-link-black" href="https://github.com/EvanJ3/">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="footer-container">
-                    <p class="footer-text-black">Evan Jones © 2021 | Atlanta, GA | Aether Technology</p>
-                </div>
-            </footer>
-        </section>
-    </body>
+    <div class="divider"></div>
 
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript"></script>
-    <script src="js/timeline.js"></script>
-    <script src="https://unpkg.com/d3-force-boundary@0.0.1/dist/d3-force-boundary.min.js"></script>
-    <script src="js/skills.js"></script>
-    <script src="js/swiped-events.js"></script>
-    <script src="js/certification.js"></script>
-    <script src="js/nav.js"></script>
+    <!-- RECOGNITION -->
+    <section>
+      <div class="wrap">
+        <div class="sec-head rise"><span class="eyebrow">Recognition</span><h2>Awards &amp; Patents</h2></div>
+        <div class="rec-grid">
+          <div class="rec rise">
+            <span class="rec-tag">Patent Pending</span>
+            <h3>ECE</h3>
+            <p>An intelligent system for automobile failure and repair prediction.</p>
+          </div>
+          <a class="rec is-link rise" style="animation-delay:.08s" href="https://www.linkedin.com/posts/mercedes-benz-usa_we-launched-the-shining-star-award-program-ugcPost-7321540999267184640-m2ds" target="_blank" rel="noopener noreferrer">
+            <span class="rec-tag">Award</span>
+            <h3>Mercedes-Benz Shining Star <span class="ext" aria-hidden="true">↗</span></h3>
+            <p>Most impactful individual contributor, Q2 2025.</p>
+          </a>
+          <div class="rec rise" style="animation-delay:.16s">
+            <span class="rec-tag">Paper</span>
+            <h3>Ragged Ranking for Hierarchical Prediction</h3>
+            <p>A novel application of ragged tensors to learning-to-rank tasks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="js/site.js"></script>
+</body>
 </html>
