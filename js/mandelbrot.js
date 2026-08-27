@@ -1,148 +1,95 @@
+/* ============================================================
+   mandelbrot.js — the homepage hero.
+   The deep-navy field paints first, then the cyan boundary glow
+   blooms inward toward the set over successive iterations; the
+   name card follows. Pure canvas, no dependencies.
+   ============================================================ */
+(function () {
+  var canvas = document.getElementById("mandel");
+  if (!canvas) return;
+  var ctx = canvas.getContext("2d");
+  var card = document.querySelector(".hero-card");
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var MAX = 90, raf = null;
 
+  // exterior colour by iteration-to-escape: far field (early) dark, boundary (late) bright
+  function paint(d, p, it) {
+    var b = Math.pow(it / MAX, 1.55);
+    d[p]     = (4  + 55 * b) | 0;    // deepened steel-cyan
+    d[p + 1] = (6  + 150 * b) | 0;
+    d[p + 2] = (16 + 185 * b) | 0;
+    d[p + 3] = 255;
+  }
 
-class Mandelbrot {
+  function build() {
+    if (raf) cancelAnimationFrame(raf);
+    if (card) card.classList.remove("show");
 
-    constructor(){
+    var W = canvas.width  = Math.min(1200, Math.floor(canvas.clientWidth  || window.innerWidth));
+    var H = canvas.height = Math.min(820,  Math.floor(canvas.clientHeight || window.innerHeight));
+    if (!W || !H) { if (card) card.classList.add("show"); return; }  // no viewport yet — show the name anyway
+    var N = W * H;
 
-        
-        this.initialize()
-        
-    };
+    var cx = -0.55, spanR = 3.3, spanI = spanR * H / W;
+    var minR = cx - spanR / 2, minI = -spanI / 2;
+    var sr = spanR / W, si = spanI / H;
 
-    initialize() {
-        this.window_height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        this.window_width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-        this.navbar_height = document.querySelector('.header').offsetHeight;
-        this.footer_height = document.querySelector('.footer-fixed-bottom').offsetHeight;
-        this.canvas_height = (this.window_height - this.navbar_height - this.footer_height);
-        this.canvas_width = this.window_width;
-        var scale = window.devicePixelRatio;
-        
-        
+    var zx = new Float64Array(N), zy = new Float64Array(N);
+    var cr = new Float64Array(N), ci = new Float64Array(N);
+    var doneA = new Uint8Array(N);
+    var img = ctx.createImageData(W, H), d = img.data;
 
-        //if (this.canvas_width % 2 !== 0){
-            //this.canvas_width = this.canvas_width-1
-        //};
+    for (var py = 0, k = 0; py < H; py++) {
+      var y0 = minI + si * py;
+      for (var px = 0; px < W; px++, k++) {
+        cr[k] = minR + sr * px; ci[k] = y0;
+        d[k * 4] = 3; d[k * 4 + 1] = 6; d[k * 4 + 2] = 18; d[k * 4 + 3] = 255;
+      }
+    }
 
-        //if (this.canvas_height % 2 !==0 ){
-         //   this.canvas_height = this.canvas_height-1
-        //};
+    var g = 0;
+    function step() {
+      for (var k = 0; k < N; k++) {
+        if (doneA[k]) continue;
+        var x = zx[k], y = zy[k];
+        if (x * x + y * y > 4) { doneA[k] = 1; paint(d, k * 4, g); continue; }
+        var xt = x * x - y * y + cr[k];
+        zy[k] = 2 * x * y + ci[k];
+        zx[k] = xt;
+      }
+      ctx.putImageData(img, 0, 0);
+      g++;
+      if (g < MAX) { raf = requestAnimationFrame(step); }
+      else if (card) { card.classList.add("show"); }
+    }
+    step();
+  }
 
-        if (scale != 1){
-            while(this.canvas_width % scale != 0 && this.canvas_width %2 != 0){
-                this.canvas_width = this.canvas_width -1
-            }
-            while(this.canvas_height % scale != 0 && this.canvas_height % 2 != 0){
-                this.canvas_height = this.canvas_height -1
-            }
-        }
+  function buildFinal() {
+    // reduced-motion: draw the final frame at once, then show the card
+    var W = canvas.width  = Math.min(1200, Math.floor(canvas.clientWidth  || window.innerWidth));
+    var H = canvas.height = Math.min(820,  Math.floor(canvas.clientHeight || window.innerHeight));
+    if (!W || !H) { if (card) card.classList.add("show"); return; }
+    var spanR = 3.3, spanI = spanR * H / W, minR = -0.55 - spanR / 2, minI = -spanI / 2;
+    var img = ctx.createImageData(W, H), d = img.data;
+    for (var py = 0, k = 0; py < H; py++) {
+      var y0 = minI + spanI * py / H;
+      for (var px = 0; px < W; px++, k++) {
+        var x0 = minR + spanR * px / W, x = 0, y = 0, it = 0, x2 = 0, y2 = 0;
+        while (x2 + y2 <= 4 && it < MAX) { y = 2 * x * y + y0; x = x2 - y2 + x0; x2 = x * x; y2 = y * y; it++; }
+        if (it === MAX) { d[k * 4] = 3; d[k * 4 + 1] = 6; d[k * 4 + 2] = 18; d[k * 4 + 3] = 255; }
+        else paint(d, k * 4, it);
+      }
+    }
+    ctx.putImageData(img, 0, 0);
+    if (card) card.classList.add("show");
+  }
 
-
-        this.canvas_container = document.querySelector('.canvas-container');
-        this.canvas_container.style.width = this.canvas_width
-        this.canvas_container.style.height = this.canvas_height
-
-        
-        this.x_start= -1.5;
-        this.x_stop = 0.5;
-        this.y_start = 1.5;
-        this.y_stop = 0.0;
-
-        if (this.canvas_width >= this.canvas_height + 200){
-            this.x_start= -2.5;
-            this.x_stop = 1.0;
-            this.y_start = 1.0;
-            this.y_stop = 0.0;
-        }
-
-        this.canvas = document.querySelector('canvas');
-        this.canvas.width = this.canvas_width
-        this.canvas.height = this.canvas_height
-        this.ctx = this.canvas.getContext('2d');
-
-        this.body_background_color = '#000019'; 
-        this.canvas_background_color = 'rgb(101, 204, 255)';
-        this.canvas_base_color = 'rgb(0, 0, 0)';
-
-        this.ctx.clearRect(0, 0, this.canvas_width, this.canvas_height);
-        this.canvas.style.backgroundColor = this.canvas_background_color;
-        document.body.style.background = this.body_background_color;
-        this.ctx.clearRect(0, 0, this.canvas_width, this.canvas_height);
-        this.ctx.fillStyle = this.canvas_base_color;
-        this.ctx.fillRect(0,0, this.canvas_width, this.canvas_height);
-        this.imageData = this.ctx.getImageData(0,0,this.canvas_width,this.canvas_height);
-        this.total_canvas_size = this.canvas_height*this.canvas_width*4
-        this.full_height_less_one = this.canvas_height-1
-        this.canvas_height = this.canvas_height/2
-
-        this.x_step = (this.x_stop - this.x_start) / (this.canvas_width-1);
-        this.y_step = (this.y_stop - this.y_start) / (this.canvas_height-1);
-
-        this.max_iteration = 20;
-        this.min_iteration = 0;
-        this.global_iteration = 0;
-        
-        this.points_array = new Array(this.canvas_width);
-        for(let i=0; i < this.canvas_width; i++){
-            this.points_array[i] = new Array(5)
-            
-            for(let j=0; j < this.canvas_height; j++){
-                let x_coord = this.x_start + (this.x_step * i);
-                let y_coord = this.y_start + (this.y_step * j);
-                this.points_array[i][j] = [x_coord,y_coord,0,x_coord,y_coord];
-            };
-        };
-        this.render()
-
-    };
-
-    to_rgba(iteration,min_iter) {
-        return [, , 17, 255 * Math.pow(0.985, iteration - min_iter)];
-    };
-
-    render = () => {
-        const data = this.imageData.data;
-        for (let i=0; i<this.points_array.length; i++){
-            for (let j=0; j<this.points_array[0].length;j++){
-                const [x,y,iteration,x0,y0] = this.points_array[i][j];
-                if (iteration >= this.global_iteration && iteration < this.max_iteration){
-                    if (x*x + y*y < 4){
-                        this.points_array[i][j] = [(x*x) - (y*y) + x0, 2 * x * y + y0, iteration + 1, x0, y0];
-                    }else{
-                        const pos = (j*this.canvas_width+i)*4;
-                        const pos2 = ((this.full_height_less_one-j)*this.canvas_width+i)*4;
-                        data[pos+2] = 25;
-                        data[pos+3] = 255 * 0.985**(this.global_iteration - this.min_iteration);
-                        data[pos2+2] = 25;
-                        data[pos2+3] = 255 * 0.985**(this.global_iteration - this.min_iteration);
-
-                        
-                    };
-                };
-            };
-        };
-        this.global_iteration ++;
-        if (this.global_iteration < this.max_iteration){
-            this.ctx.putImageData(this.imageData, 0, 0);
-            requestAnimationFrame(this.render);
-        }else{
-            document.querySelector('#center-card').className = 'title-card'
-            document.querySelector('#center-card').innerHTML = `<div class="name-title-container">
-            <p class="name-title">Evan Jones</p>
-        </div>
-        <div class="description-container">
-            <p class="description-content">Data Scientist | Machine Learning Engineer </p>
-        </div>`
-        }
-    };
-
-};
-
-window.addEventListener('resize', function(event){
-    document.querySelector('#center-card').className = ''
-    document.querySelector('#center-card').innerHTML = ''
-    run_mandelbrot.initialize()
-});
-
-const run_mandelbrot = new Mandelbrot();
-
+  if (reduce) {
+    buildFinal();
+  } else {
+    build();
+    var t;
+    window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(build, 250); });
+  }
+})();
