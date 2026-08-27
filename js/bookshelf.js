@@ -45,13 +45,49 @@
     });
   }
 
-  function coverImg(book) {
-    if (!book.Image_Path) return null;
+  // full covers are ~3456px/~3MB each but render at ~84px, so point at
+  // the pre-built 240px thumbnails; fall back to the original if missing.
+  function thumbPath(p) {
+    return p.replace("/Bookshelf_Images/", "/Bookshelf_Thumbs/")
+            .replace(/\.(jpe?g|png)$/i, ".jpg");
+  }
+
+  // one <img> tile whose cover can be swapped in place during rotation
+  function makeTile(book) {
     var img = document.createElement("img");
-    img.src = book.Image_Path;
     img.loading = "lazy";
-    img.alt = book.Title || "";
+    img.decoding = "async";
+    setCover(img, book);
     return img;
+  }
+
+  function setCover(img, book) {
+    var full = book.Image_Path;
+    img.alt = book.Title || "";
+    img.onerror = function () { img.onerror = null; img.src = full; };
+    img.src = thumbPath(full);
+  }
+
+  var ROTATE_MS = 2200;   // time between swap ticks
+  var SWAP_MAX = 3;       // tiles swapped per tick
+  var TARGET = 30;        // roughly how many tiles to show at once
+
+  // the wall is a responsive auto-fill grid, so the column count changes
+  // with width; snap the tile count to a full multiple of it (>=1 row) so
+  // the last row is never left partially filled.
+  function colCount() {
+    var t = getComputedStyle(wall).gridTemplateColumns;
+    return t && t !== "none" ? t.split(" ").length : 1;
+  }
+  function fullTileCount() {
+    var cols = colCount();
+    return Math.max(cols, Math.round(TARGET / cols) * cols);
+  }
+
+  function pickIndex(len, avoid) {
+    var n;
+    do { n = Math.floor(Math.random() * len); } while (len > 1 && avoid(n));
+    return n;
   }
 
   Promise.all(SOURCES.map(function (url) {
@@ -61,19 +97,80 @@
   })).then(function (lists) {
     // interleave categories so the wall reads as one mixed shelf
     var max = Math.max.apply(null, lists.map(function (l) { return l.length; }));
-    var total = 0;
-    var frag = document.createDocumentFragment();
+    var pool = [];
     for (var i = 0; i < max; i++) {
       lists.forEach(function (list) {
-        if (i < list.length) {
-          var img = coverImg(list[i]);
-          if (img) { frag.appendChild(img); total++; }
-        }
+        if (i < list.length && list[i].Image_Path) pool.push(list[i]);
       });
     }
-    wall.appendChild(frag);
 
     var note = document.getElementById("wall-count");
-    if (note) note.textContent = total;
+    if (note) note.textContent = pool.length;   // always the full collection
+
+    var reduce = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // when the pool fits (or motion is reduced), just render everything
+    if (reduce || pool.length <= TARGET) {
+      var all = document.createDocumentFragment();
+      pool.forEach(function (b) { all.appendChild(makeTile(b)); });
+      wall.appendChild(all);
+      return;
+    }
+
+    // render a reduced set; the rest wait off-screen in the pool
+    var slotIdx = [];        // slotIdx[slot] = pool index shown in that slot
+    var onWall = {};         // pool indices currently displayed (dedupe set)
+    var tiles = [];
+
+    function addTile() {
+      var idx = pickIndex(pool.length, function (n) { return onWall[n]; });
+      onWall[idx] = true;
+      slotIdx.push(idx);
+      var tile = makeTile(pool[idx]);
+      tiles.push(tile);
+      wall.appendChild(tile);
+    }
+    function removeTile() {
+      var tile = tiles.pop();
+      delete onWall[slotIdx.pop()];
+      wall.removeChild(tile);
+    }
+    // grow/shrink to a full-rows count for the current column layout
+    function reflow() {
+      var want = Math.min(fullTileCount(), pool.length);
+      while (tiles.length < want) addTile();
+      while (tiles.length > want) removeTile();
+    }
+    reflow();
+
+    var resizeTimer;
+    window.addEventListener("resize", function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(reflow, 200);
+    });
+
+    // periodically fade out random slots and swap in unshown covers
+    setInterval(function () {
+      if (document.hidden || tiles.length >= pool.length) return;
+      var swaps = 1 + Math.floor(Math.random() * SWAP_MAX);
+      var touched = {};
+      for (var s = 0; s < swaps && s < tiles.length; s++) {
+        var slot = pickIndex(tiles.length, function (n) { return touched[n]; });
+        touched[slot] = true;
+        var next = pickIndex(pool.length, function (n) { return onWall[n]; });
+        (function (tile, slot, next) {
+          var prev = slotIdx[slot];
+          onWall[next] = true;                 // claim it now so no other
+          slotIdx[slot] = next;                // swap this tick reuses it
+          tile.classList.add("swapping");
+          setTimeout(function () {
+            delete onWall[prev];               // free the outgoing cover
+            setCover(tile, pool[next]);
+            tile.classList.remove("swapping");
+          }, 600);                             // matches the CSS fade
+        })(tiles[slot], slot, next);
+      }
+    }, ROTATE_MS);
   });
 })();
