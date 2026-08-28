@@ -117,6 +117,7 @@ footer.site p{font-family:var(--mono);font-size:.76rem;color:var(--faint);letter
 .chip{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;border-radius:100px;padding:.24em .8em;border:1px solid var(--line-strong);color:var(--muted)}
 .chip.patent{color:var(--accent);background:rgba(110,168,255,.07)}
 .chip.live{color:var(--good);border-color:rgba(87,201,138,.4);background:rgba(87,201,138,.08)}
+.chip.deprecated{color:var(--accent);background:rgba(110,168,255,.07)}
 
 .out{font-family:var(--mono);font-size:.8rem;color:var(--accent);display:inline-flex;align-items:center;gap:.4em;transition:gap .2s ease}
 .out:hover{gap:.7em}
