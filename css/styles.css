@@ -5,20 +5,21 @@
    ============================================================ */
 
 :root{
-  --ink:#070a12;
-  --surface:#0e1524;
-  --surface-2:#131d31;
-  --line:rgba(120,170,255,.12);
-  --line-strong:rgba(120,170,255,.22);
-  --text:#eaeef7;
-  --muted:#8a94ab;
-  --faint:#59637d;
-  --accent:#6ea8ff;
-  --accent-deep:#3d6bb0;
-  --glow:rgba(110,168,255,.28);
-  --cyan:#4fb0e6;            /* Mandelbrot glow — homepage accent */
-  --cyan-glow:rgba(79,176,230,.28);
-  --good:#57c98a;
+  /* GitHub Dark — neutral graphite ground, blue accent */
+  --ink:#0d1117;
+  --surface:#161b22;
+  --surface-2:#1c2129;
+  --line:rgba(240,246,252,.08);
+  --line-strong:rgba(240,246,252,.16);
+  --text:#e6edf3;
+  --muted:#8b949e;
+  --faint:#6e7681;
+  --accent:#58a6ff;
+  --accent-deep:#1f6feb;
+  --glow:rgba(88,166,255,.28);
+  --cyan:#58a6ff;            /* Mandelbrot glow — homepage accent */
+  --cyan-glow:rgba(88,166,255,.28);
+  --good:#3fb950;
   --maxw:1080px;
   --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
@@ -33,7 +34,7 @@ body{
   font-family:var(--sans);font-size:1.0625rem;line-height:1.65;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
 }
-body.home{background:#000019;overflow:hidden}
+body.home{background:#0d1117;overflow:hidden}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 h1,h2,h3,h4{font-weight:600;line-height:1.15;text-wrap:balance;margin:0}
@@ -54,9 +55,9 @@ section{padding:clamp(3rem,6vw,5rem) 0}
 .divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto}
 
 /* ---------- nav (injected by site.js) ---------- */
-header.nav{position:sticky;top:0;z-index:20;background:rgba(7,10,18,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.nav{position:sticky;top:0;z-index:20;background:rgba(13,17,23,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 body.home header.nav{position:fixed;left:0;right:0;background:none;border-bottom:none}
-body.home header.nav::before{content:"";position:absolute;inset:0;height:130%;pointer-events:none;background:linear-gradient(to bottom,rgba(0,0,25,.72),transparent)}
+body.home header.nav::before{content:"";position:absolute;inset:0;height:130%;pointer-events:none;background:linear-gradient(to bottom,rgba(13,17,23,.85),transparent)}
 .nav-inner{position:relative;max-width:var(--maxw);margin:0 auto;padding:1rem clamp(1.25rem,4vw,2.5rem);display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .brand{font-weight:700;font-size:1.05rem;letter-spacing:.01em}
 .brand span{color:var(--accent)}
@@ -81,7 +82,7 @@ body.home .nav-links a::after{background:var(--cyan)}
   .nav-links{
     position:absolute;top:calc(100% + .5rem);left:0;right:0;
     flex-direction:column;align-items:stretch;gap:0;
-    background:rgba(10,14,26,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(22,27,34,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
     border:1px solid var(--line);border-radius:12px;padding:.5rem;
     box-shadow:0 24px 50px -20px rgba(0,0,0,.85);
     opacity:0;transform:translateY(-8px);pointer-events:none;transition:opacity .2s ease,transform .2s ease;
@@ -91,12 +92,12 @@ body.home .nav-links a::after{background:var(--cyan)}
   .nav-links a::after{display:none}
   .nav-links a:hover,.nav-links a[aria-current]{background:rgba(120,170,255,.08)}
   .nav-links a[aria-current]{color:var(--accent)}
-  body.home .nav-links{background:rgba(2,6,20,.97)}
+  body.home .nav-links{background:rgba(13,17,23,.97)}
 }
 
 /* ---------- footer (injected by site.js) ---------- */
 footer.site{border-top:1px solid var(--line);padding:2.5rem 0;text-align:center;margin-top:1rem}
-body.home footer.site{position:fixed;left:0;right:0;bottom:0;border-top:none;margin:0;padding:1.1rem 1rem 1.3rem;background:linear-gradient(to top,rgba(0,0,25,.7),transparent)}
+body.home footer.site{position:fixed;left:0;right:0;bottom:0;border-top:none;margin:0;padding:1.1rem 1rem 1.3rem;background:linear-gradient(to top,rgba(13,17,23,.85),transparent)}
 footer.site .socials{display:flex;gap:1.15rem;justify-content:center;margin-bottom:1rem}
 footer.site .socials a{color:var(--muted);transition:color .2s ease,transform .2s ease;display:inline-flex}
 footer.site .socials a:hover{color:var(--accent);transform:translateY(-2px)}
@@ -131,11 +132,11 @@ footer.site p{font-family:var(--mono);font-size:.76rem;color:var(--faint);letter
    HOME — Mandelbrot splash
    ============================================================ */
 .splash{position:relative;height:100vh;height:100dvh;width:100%;overflow:hidden;display:grid;place-items:center}
-#mandel{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000019}
+#mandel{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0d1117}
 .hero-card{
   position:relative;z-index:5;text-align:center;
   padding:clamp(1.6rem,4vw,2.6rem) clamp(1.8rem,5vw,3.4rem);border-radius:14px;
-  background:rgba(2,6,20,.30);border:1px solid var(--line);
+  background:rgba(22,27,34,.55);border:1px solid var(--line-strong);
   backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
   box-shadow:0 30px 90px -30px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.04);
   max-width:min(90vw,640px);opacity:0;
