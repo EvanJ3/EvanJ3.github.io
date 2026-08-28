@@ -15,9 +15,9 @@
   // exterior colour by iteration-to-escape: far field (early) dark, boundary (late) bright
   function paint(d, p, it) {
     var b = Math.pow(it / MAX, 1.55);
-    d[p]     = (4  + 55 * b) | 0;    // deepened steel-cyan
-    d[p + 1] = (6  + 150 * b) | 0;
-    d[p + 2] = (16 + 185 * b) | 0;
+    d[p]     = (13 + 75  * b) | 0;   // GitHub graphite #0d1117 -> accent #58a6ff
+    d[p + 1] = (17 + 149 * b) | 0;
+    d[p + 2] = (23 + 232 * b) | 0;
     d[p + 3] = 255;
   }
 
@@ -43,7 +43,7 @@
       var y0 = minI + si * py;
       for (var px = 0; px < W; px++, k++) {
         cr[k] = minR + sr * px; ci[k] = y0;
-        d[k * 4] = 3; d[k * 4 + 1] = 6; d[k * 4 + 2] = 18; d[k * 4 + 3] = 255;
+        d[k * 4] = 13; d[k * 4 + 1] = 17; d[k * 4 + 2] = 23; d[k * 4 + 3] = 255;
       }
     }
 
@@ -77,7 +77,7 @@
       for (var px = 0; px < W; px++, k++) {
         var x0 = minR + spanR * px / W, x = 0, y = 0, it = 0, x2 = 0, y2 = 0;
         while (x2 + y2 <= 4 && it < MAX) { y = 2 * x * y + y0; x = x2 - y2 + x0; x2 = x * x; y2 = y * y; it++; }
-        if (it === MAX) { d[k * 4] = 3; d[k * 4 + 1] = 6; d[k * 4 + 2] = 18; d[k * 4 + 3] = 255; }
+        if (it === MAX) { d[k * 4] = 13; d[k * 4 + 1] = 17; d[k * 4 + 2] = 23; d[k * 4 + 3] = 255; }
         else paint(d, k * 4, it);
       }
     }
