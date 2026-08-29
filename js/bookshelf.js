@@ -71,6 +71,10 @@
   var ROTATE_MS = 2200;   // time between swap ticks
   var SWAP_MAX = 3;       // tiles swapped per tick
   var TARGET = 30;        // roughly how many tiles to show at once
+  var SMALL_MAX_W = 620;  // treat viewports <= this (px) as small screens
+  var SMALL_MAX_ROWS = 5; // cap the wall to this many rows on small screens
+
+  function isSmallScreen() { return window.innerWidth <= SMALL_MAX_W; }
 
   // the wall is a responsive auto-fill grid, so the column count changes
   // with width; snap the tile count to a full multiple of it (>=1 row) so
@@ -81,7 +85,10 @@
   }
   function fullTileCount() {
     var cols = colCount();
-    return Math.max(cols, Math.round(TARGET / cols) * cols);
+    var count = Math.max(cols, Math.round(TARGET / cols) * cols);
+    // on small screens, cap total rows so the wall doesn't scroll forever
+    if (isSmallScreen()) count = Math.min(count, cols * SMALL_MAX_ROWS);
+    return count;
   }
 
   function pickIndex(len, avoid) {
@@ -110,10 +117,17 @@
     var reduce = window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // when the pool fits (or motion is reduced), just render everything
+    // when the pool fits (or motion is reduced), render statically without
+    // rotation — but still cap the row count on small screens so the wall
+    // doesn't scroll forever.
     if (reduce || pool.length <= TARGET) {
+      var books = pool;
+      if (isSmallScreen()) {
+        var cap = colCount() * SMALL_MAX_ROWS;
+        if (books.length > cap) books = books.slice(0, cap);
+      }
       var all = document.createDocumentFragment();
-      pool.forEach(function (b) { all.appendChild(makeTile(b)); });
+      books.forEach(function (b) { all.appendChild(makeTile(b)); });
       wall.appendChild(all);
       return;
     }

@@ -215,7 +215,8 @@ footer.site p{font-family:var(--mono);font-size:.76rem;color:var(--faint);letter
 .rec.is-link{text-decoration:none;color:inherit;cursor:pointer}
 .rec.is-link:hover .ext{color:var(--accent)}
 .rec .ext{color:var(--faint);font-size:.85em;transition:color .25s ease}
-@media(max-width:760px){.rec-grid{grid-template-columns:1fr}}
+.phil-grid{grid-template-columns:repeat(2,1fr)}
+@media(max-width:760px){.rec-grid{grid-template-columns:1fr}.phil-grid{grid-template-columns:1fr}}
 
 /* ============================================================
    PORTFOLIO
