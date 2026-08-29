@@ -7,6 +7,8 @@
   var wall = document.getElementById("book-wall");
   if (!wall) return;
 
+  var paused = false;   // cover rotation pauses while the detail view is open
+
   var SOURCES = [
     "./csv/Bookshelf_csv/Fiction_book_list.csv",
     "./csv/Bookshelf_csv/Non_Fiction_book_list.csv",
@@ -63,7 +65,16 @@
 
   function setCover(img, book) {
     var full = book.Image_Path;
+    var author = ((book.Author_First || "").trim() + " " +
+                  (book.Author_Last || "").trim()).trim();
+    var note = (book.Description || book.Quote || "").trim();
     img.alt = book.Title || "";
+    img.title = author ? (book.Title + " — " + author) : (book.Title || "");
+    img.dataset.title = book.Title || "";
+    img.dataset.author = author;
+    img.dataset.note = note;
+    img.dataset.kind = book.Description ? "note" : (book.Quote ? "quote" : "");
+    img.dataset.score = book.Review_Score || "";
     img.onerror = function () { img.onerror = null; img.src = full; };
     img.src = thumbPath(full);
   }
@@ -72,7 +83,7 @@
   var SWAP_MAX = 3;       // tiles swapped per tick
   var TARGET = 30;        // roughly how many tiles to show at once
   var SMALL_MAX_W = 620;  // treat viewports <= this (px) as small screens
-  var SMALL_MAX_ROWS = 5; // cap the wall to this many rows on small screens
+  var SMALL_MAX_ROWS = 4; // cap the wall to this many rows on small screens
 
   function isSmallScreen() { return window.innerWidth <= SMALL_MAX_W; }
 
@@ -166,7 +177,7 @@
 
     // periodically fade out random slots and swap in unshown covers
     setInterval(function () {
-      if (document.hidden || tiles.length >= pool.length) return;
+      if (paused || document.hidden || tiles.length >= pool.length) return;
       var swaps = 1 + Math.floor(Math.random() * SWAP_MAX);
       var touched = {};
       for (var s = 0; s < swaps && s < tiles.length; s++) {
@@ -187,4 +198,135 @@
       }
     }, ROTATE_MS);
   });
+
+  // ----------------------------------------------------------------
+  // Detail view: click a cover to open it like a book and read the
+  // title, author, rating, and note. Hover shows a quick caption.
+  // ----------------------------------------------------------------
+  setupInteractions();
+
+  function esc(s) {
+    return (s || "").replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  function setupInteractions() {
+    var modal = document.createElement("div");
+    modal.className = "book-modal";
+    modal.hidden = true;
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-label", "Book details");
+    modal.innerHTML =
+      '<div class="bm-backdrop" data-close></div>' +
+      '<button class="bm-close" data-close aria-label="Close">&times;</button>' +
+      '<div class="bm-stage">' +
+        '<div class="bm-spread">' +
+          '<article class="bm-page">' +
+            '<div class="bm-rating" aria-hidden="true"></div>' +
+            '<h3 class="bm-title"></h3>' +
+            '<p class="bm-author"></p>' +
+            '<div class="bm-note"></div>' +
+          '</article>' +
+          '<div class="bm-cover"><img alt=""><span class="bm-cover-back" aria-hidden="true"></span></div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    var elCover = modal.querySelector(".bm-cover img");
+    var elRating = modal.querySelector(".bm-rating");
+    var elTitle = modal.querySelector(".bm-title");
+    var elAuthor = modal.querySelector(".bm-author");
+    var elNote = modal.querySelector(".bm-note");
+    var openTimer, closeTimer, lastFocus = null;
+
+    function stars(n) {
+      n = parseInt(n, 10) || 0;
+      var s = "";
+      for (var i = 0; i < 5; i++) s += '<span class="' + (i < n ? "on" : "") + '">●</span>';
+      return s;
+    }
+
+    function openFor(img) {
+      var d = img.dataset;
+      clearTimeout(closeTimer);
+      elCover.src = img.currentSrc || img.src;
+      elCover.alt = d.title || "";
+      elTitle.textContent = d.title || "";
+      elAuthor.textContent = d.author || "";
+      elRating.innerHTML = d.score ? stars(d.score) : "";
+      if (d.note) {
+        elNote.textContent = d.note;
+        elNote.classList.toggle("is-quote", d.kind === "quote");
+        elNote.style.display = "";
+      } else {
+        elNote.textContent = "";
+        elNote.style.display = "none";
+      }
+      paused = true;
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      document.documentElement.style.overflow = "hidden";
+      // paint the closed book, fade it in, then swing the cover open
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { modal.classList.add("is-open"); });
+      });
+      openTimer = setTimeout(function () { modal.classList.add("opened"); }, 280);
+      modal.querySelector(".bm-close").focus();
+    }
+
+    function close() {
+      clearTimeout(openTimer);
+      modal.classList.remove("opened");
+      modal.classList.remove("is-open");
+      document.documentElement.style.overflow = "";
+      paused = false;
+      closeTimer = setTimeout(function () { modal.hidden = true; }, 650);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    modal.addEventListener("click", function (e) {
+      if (e.target.hasAttribute("data-close")) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !modal.hidden) close();
+    });
+
+    wall.addEventListener("click", function (e) {
+      var img = e.target.closest && e.target.closest("img");
+      if (img && wall.contains(img)) openFor(img);
+    });
+
+    // lightweight hover caption on pointer devices
+    var canHover = window.matchMedia && window.matchMedia("(hover: hover)").matches;
+    if (canHover) {
+      var tip = document.createElement("div");
+      tip.className = "wall-tip";
+      tip.hidden = true;
+      document.body.appendChild(tip);
+
+      wall.addEventListener("mouseover", function (e) {
+        var img = e.target.closest && e.target.closest("img");
+        if (!img) return;
+        tip.innerHTML = "<b>" + esc(img.dataset.title) + "</b>" +
+          (img.dataset.author ? "<span>" + esc(img.dataset.author) + "</span>" : "");
+        tip.hidden = false;
+      });
+      wall.addEventListener("mousemove", function (e) {
+        if (tip.hidden) return;
+        var pad = 16, r = tip.getBoundingClientRect();
+        var x = e.clientX + pad, y = e.clientY + pad;
+        if (x + r.width > window.innerWidth) x = e.clientX - r.width - pad;
+        if (y + r.height > window.innerHeight) y = e.clientY - r.height - pad;
+        tip.style.left = x + "px";
+        tip.style.top = y + "px";
+      });
+      wall.addEventListener("mouseout", function (e) {
+        var to = e.relatedTarget;
+        if (to && wall.contains(to) && to.closest && to.closest("img")) return;
+        tip.hidden = true;
+      });
+    }
+  }
 })();
