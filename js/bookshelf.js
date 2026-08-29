@@ -1,19 +1,35 @@
 /* ============================================================
    bookshelf.js — renders the full-collection cover wall from the
-   book-list CSVs. Favorites are authored directly in the HTML;
-   this only builds the wall of everything else. No dependencies.
+   book-list CSVs and powers the "open like a book" detail view
+   for both the wall and the hand-picked favorite cards. Where a
+   wall book is also a favorite, its personal note wins. No deps.
    ============================================================ */
 (function () {
   var wall = document.getElementById("book-wall");
   if (!wall) return;
 
   var paused = false;   // cover rotation pauses while the detail view is open
+  var favByTitle = {};  // normalized title  -> personal note/rating
+  var favByImg = {};    // cover basename    -> personal note/rating
+  var openBook;         // assigned by setupInteractions(); opens the modal
 
   var SOURCES = [
     "./csv/Bookshelf_csv/Fiction_book_list.csv",
     "./csv/Bookshelf_csv/Non_Fiction_book_list.csv",
     "./csv/Bookshelf_csv/Textbook_list.csv"
   ];
+
+  // hand-picked favorites carry EJ's own words; prefer these everywhere
+  var FAV_SOURCES = [
+    "./csv/Bookshelf_csv/Favorite_Fiction.csv",
+    "./csv/Bookshelf_csv/Favorite_Non_Fiction.csv",
+    "./csv/Bookshelf_csv/Favorite_Textbook.csv"
+  ];
+
+  function norm(s) { return (s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
+  function imgBaseName(src) {
+    return (src || "").split("/").pop().replace(/\.[^.]+$/, "");
+  }
 
   // minimal RFC-4180-ish CSV parser (handles quoted fields, commas, newlines)
   function parseCSV(text) {
@@ -67,14 +83,22 @@
     var full = book.Image_Path;
     var author = ((book.Author_First || "").trim() + " " +
                   (book.Author_Last || "").trim()).trim();
-    var note = (book.Description || book.Quote || "").trim();
+    var fav = favByTitle[norm(book.Title)];
+    var note, kind, score;
+    if (fav && fav.note) {              // EJ's own words win over list blurbs
+      note = fav.note; kind = "note"; score = fav.score || book.Review_Score || "";
+    } else {
+      note = (book.Description || book.Quote || "").trim();
+      kind = book.Description ? "note" : (book.Quote ? "quote" : "");
+      score = book.Review_Score || "";
+    }
     img.alt = book.Title || "";
     img.title = author ? (book.Title + " — " + author) : (book.Title || "");
     img.dataset.title = book.Title || "";
     img.dataset.author = author;
     img.dataset.note = note;
-    img.dataset.kind = book.Description ? "note" : (book.Quote ? "quote" : "");
-    img.dataset.score = book.Review_Score || "";
+    img.dataset.kind = kind;
+    img.dataset.score = score;
     img.onerror = function () { img.onerror = null; img.src = full; };
     img.src = thumbPath(full);
   }
@@ -108,11 +132,79 @@
     return n;
   }
 
-  Promise.all(SOURCES.map(function (url) {
-    return fetch(url).then(function (r) { return r.text(); }).then(function (t) {
-      return toObjects(parseCSV(t));
-    }).catch(function () { return []; });
-  })).then(function (lists) {
+  // the CSVs are exported from Excel as Windows-1252 (smart quotes etc.);
+  // decode as UTF-8 first and fall back to 1252 so apostrophes aren't mangled.
+  function decodeBuf(buf) {
+    try { return new TextDecoder("utf-8", { fatal: true }).decode(buf); }
+    catch (e) { return new TextDecoder("windows-1252").decode(buf); }
+  }
+  function fetchObjs(url) {
+    return fetch(url)
+      .then(function (r) { return r.arrayBuffer(); })
+      .then(function (b) { return toObjects(parseCSV(decodeBuf(b))); })
+      .catch(function () { return []; });
+  }
+
+  // index the favorite lists by title and by cover filename
+  function buildFavMaps(favLists) {
+    favLists.forEach(function (list) {
+      list.forEach(function (b) {
+        var author = ((b.Author_First || "").trim() + " " +
+                      (b.Author_Last || "").trim()).trim();
+        var rec = {
+          title: b.Title || "", author: author,
+          note: (b.Description || "").trim(), score: b.Review_Score || "5"
+        };
+        if (b.Title) favByTitle[norm(b.Title)] = rec;
+        if (b.Image_Path) favByImg[imgBaseName(b.Image_Path)] = rec;
+      });
+    });
+  }
+
+  // make the hand-picked favorite cards open in the same book view,
+  // showing the full personal write-up rather than the card's teaser.
+  function wireFavoriteCards() {
+    var cards = document.querySelectorAll(".fav");
+    Array.prototype.forEach.call(cards, function (card) {
+      var img = card.querySelector(".cover img");
+      if (!img || !openBook) return;
+      var fav = favByImg[imgBaseName(img.getAttribute("src"))];
+      var h4 = card.querySelector("h4");
+      var au = card.querySelector(".author");
+      var p = card.querySelector(".body p");
+      var data = {
+        title: fav ? fav.title : (h4 ? h4.textContent : ""),
+        author: fav ? fav.author : (au ? au.textContent : ""),
+        note: fav ? fav.note : (p ? p.textContent : ""),
+        kind: "note",
+        score: fav ? fav.score : "5"
+      };
+      card.classList.add("is-clickable");
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", "Open " + data.title);
+      function open() { openBook(assign({}, data, { cover: img.currentSrc || img.src })); }
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
+      });
+    });
+  }
+  function assign(t) {
+    for (var i = 1; i < arguments.length; i++) {
+      var s = arguments[i];
+      for (var k in s) if (Object.prototype.hasOwnProperty.call(s, k)) t[k] = s[k];
+    }
+    return t;
+  }
+
+  Promise.all([
+    Promise.all(SOURCES.map(fetchObjs)),
+    Promise.all(FAV_SOURCES.map(fetchObjs))
+  ]).then(function (loaded) {
+    var lists = loaded[0];
+    buildFavMaps(loaded[1]);   // must run before any setCover()
+    wireFavoriteCards();
     // interleave categories so the wall reads as one mixed shelf
     var max = Math.max.apply(null, lists.map(function (l) { return l.length; }));
     var pool = [];
@@ -248,17 +340,16 @@
       return s;
     }
 
-    function openFor(img) {
-      var d = img.dataset;
+    openBook = function (data) {
       clearTimeout(closeTimer);
-      elCover.src = img.currentSrc || img.src;
-      elCover.alt = d.title || "";
-      elTitle.textContent = d.title || "";
-      elAuthor.textContent = d.author || "";
-      elRating.innerHTML = d.score ? stars(d.score) : "";
-      if (d.note) {
-        elNote.textContent = d.note;
-        elNote.classList.toggle("is-quote", d.kind === "quote");
+      elCover.src = data.cover || "";
+      elCover.alt = data.title || "";
+      elTitle.textContent = data.title || "";
+      elAuthor.textContent = data.author || "";
+      elRating.innerHTML = data.score ? stars(data.score) : "";
+      if (data.note) {
+        elNote.textContent = data.note;
+        elNote.classList.toggle("is-quote", data.kind === "quote");
         elNote.style.display = "";
       } else {
         elNote.textContent = "";
@@ -295,7 +386,13 @@
 
     wall.addEventListener("click", function (e) {
       var img = e.target.closest && e.target.closest("img");
-      if (img && wall.contains(img)) openFor(img);
+      if (!img || !wall.contains(img)) return;
+      var d = img.dataset;
+      openBook({
+        cover: img.currentSrc || img.src,
+        title: d.title, author: d.author,
+        note: d.note, kind: d.kind, score: d.score
+      });
     });
 
     // lightweight hover caption on pointer devices
